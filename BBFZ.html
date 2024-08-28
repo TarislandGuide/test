@@ -140,6 +140,17 @@
                 <div class="treeItem" id="BBFZP05"><img src="./Icons/Barbarian/Frozen/BarbF25.jpg" onclick="passivePopup('BBFZP05')"></div>
             </div>
             </div>
+            <div class="ultimates">  <!--Raid Builds-->
+                <div class="levelReq">
+                    <div class="treeItem"><span class="rectSpec"></span><span class="rotate"><b>Builds</b></span></div>
+                </div>
+                <div class="ultimateSkills">   
+                <div class="treeItem" id="BBFZB1"><img   src="./Icons/Barbarian/Frozen/barbFsk2.png" onclick="raidBuilds('BBFZB1')"><span class="skillCalc right">Tank<br>Axe</span></div>
+                <div class="treeItem" id="BBFZB2"><img   src="./Icons/Barbarian/Frozen/BarbF8.jpg" onclick="raidBuilds('BBFZB2')"><span class="skillCalc right">Tank<br>Cross</span></div>
+                <div class="treeItem blank"></div>
+                <div class="treeItem"><img src="./Icons/reset.png" onclick="reset('BBFZ000000000000000000000')"><span class="skillCalc right">Reset</span></div>
+                </div>
+            </div>
             <div class="ultimates">
             <div class="levelReq">
                 <div class="treeItem"><span class="rect"></span><span class="rotate"><b>Ultimates</b></span></div>
@@ -155,17 +166,20 @@
             <div class="treeItem" id="BBFZU08"><img src="./Icons/Barbarian/Frozen/ult8.jpg" onclick="ultPopup('BBFZU08')"></div>
             </div>
             </div>
-            </div>
-
-            <div class="ultimates">  <!--Raid Builds-->
+            <div class="ultimates">  <!--PvP-->
                 <div class="levelReq">
-                    <div class="treeItem"><span class="rectSpec"></span><span class="rotate"><b>Builds</b></span></div>
+                    <div class="treeItem"><span class="rectSpec"></span><span class="rotate"><b>PvP</b></span></div>
                 </div>
-                <div class="ultimateSkills">   
-                <div class="treeItem" id="BBFZB1"><img   src="./Icons/Barbarian/Frozen/barbFsk2.png" onclick="raidBuilds('BBFZB1')"><span class="skillCalc right">Tank<br>Axe</span></div>
-                <div class="treeItem" id="BBFZB2"><img   src="./Icons/Barbarian/Frozen/BarbF8.jpg" onclick="raidBuilds('BBFZB2')"><span class="skillCalc right">Tank<br>Cross</span></div>
-                <div class="treeItem blank"></div>
-                <div class="treeItem"><img src="./Icons/reset.png" onclick="reset('BBFZ000000000000000000000')"><span class="skillCalc right">Reset</span></div>
+                <div class="ultimateSkills">
+                <div class="treeItem" id="BBFZU09"><img src="./Icons/Barbarian/Thunder/barbT1.jpg" onclick="passivePopup('BBFZU09')"></div>
+                <div class="treeItem" id="BBFZU10"><img src="./Icons/Barbarian/Thunder/barbT2.jpg" onclick="passivePopup('BBFZU10')"></div>
+                <div class="treeItem" id="BBFZU11"><img src="./Icons/Barbarian/Thunder/barbT3.jpg" onclick="passivePopup('BBFZU11')"></div>
+                <div class="treeItem" id="BBFZU12"><img src="./Icons/Barbarian/Thunder/barbT4.jpg" onclick="passivePopup('BBFZU12')"></div>
+                <div class="treeItem" id="BBFZU13"><img src="./Icons/Barbarian/Thunder/barbT5.jpg" onclick="passivePopup('BBFZU13')"></div>
+                <div class="treeItem" id="BBFZU14"><img src="./Icons/Barbarian/Thunder/barbT6.jpg" onclick="passivePopup('BBFZU14')"></div>
+                <div class="treeItem" id="BBFZU15"><img src="./Icons/Barbarian/Thunder/barbT12.jpg" onclick="passivePopup('BBFZU15')"></div>
+                <div class="treeItem" id="BBFZU16"><img src="./Icons/Barbarian/Thunder/barbT8.jpg" onclick="passivePopup('BBFZU16')"></div>
+                </div>
                 </div>
             </div>
         </div>
@@ -289,7 +303,7 @@
                 <div class="stoneItem stoneBlank"></div>
                 <div class="stoneItem"><img id = "FZC01" class="circle" loading="lazy" src="./Icons/Stone/start.png" onclick="passivePopup('BBFZC01', 'circle')"><span class="stoneCalc"><span id="BBFZC01" class="zero">1</span>/1</span></div>
                 <div class="stoneItem stoneBlank"></div>
-                <div class="stoneItem"><img class="square" src="./Icons/reset.png" onclick="resetStone('10000000000000000000000000000000000000000000000000000000000', 'WAWS')"><span class="resetText">Reset</span></div>
+                <div class="stoneItem"><img class="square" src="./Icons/reset.png" onclick="resetStone('10000000000000000000000000000000000000000000000000000000000', 'BBFZ')"><span class="resetText">Reset</span></div>
                 <div class="stoneItem stoneBlank"></div>
             </div>
         </div>
@@ -312,7 +326,7 @@
             if (params.has('skill') === true) {
                 setTalents(params.get('skill'));
             }
-            else {setParams(skillCode.join(''));
+            else {setParams(skillCode.join(''), 'skill');
             }
         }
     window.onpageshow = loadParams; 

@@ -141,6 +141,17 @@
                 <div class="treeItem" id="PAGUP05"><img src="./Icons/Paladin/Guard/palaG23.jpg" onclick="passivePopup('PAGUP05')"></div>
             </div>
             </div>
+            <div class="ultimates">  <!--Raid Builds-->
+                <div class="levelReq">
+                    <div class="treeItem"><span class="rectSpec"></span><span class="rotate"><b>Builds</b></span></div>
+                </div>
+                <div class="ultimateSkills">   
+                <div class="treeItem" id="PAGUB1"><img   src="./Icons/Paladin/Guard/palaGsk2.png" onclick="raidBuilds('PAGUB1')"><span class="skillCalc right">Holy<br>Sword</span></div>
+                <div class="treeItem" id="PAGUB2"><img   src="./Icons/Paladin/Guard/palaG8.jpg" onclick="raidBuilds('PAGUB2')"><span class="skillCalc right">Shield<br>Bash</span><span class="star"><h1>&#9733;<h1></span></div>
+                <div class="treeItem blank"></div>
+                <div class="treeItem"><img src="./Icons/reset.png" onclick="reset('PAGU000000000000000000000')"><span class="skillCalc right">Reset</span></div>
+                </div>
+            </div>
             <div class="ultimates">
             <div class="levelReq">
                 <div class="treeItem"><span class="rect"></span><span class="rotate"><b>Ultimates</b></span></div>
@@ -156,17 +167,20 @@
             <div class="treeItem" id="PAGUU08"><img src="./Icons/Paladin/Guard/ult8.jpg" onclick="ultPopup('PAGUU08')"></div>
             </div>
             </div>
-            </div>
-
-            <div class="ultimates">  <!--Raid Builds-->
+            <div class="ultimates">  <!--PvP-->
                 <div class="levelReq">
-                    <div class="treeItem"><span class="rectSpec"></span><span class="rotate"><b>Builds</b></span></div>
+                    <div class="treeItem"><span class="rectSpec"></span><span class="rotate"><b>PvP</b></span></div>
                 </div>
-                <div class="ultimateSkills">   
-                <div class="treeItem" id="PAGUB1"><img   src="./Icons/Paladin/Guard/palaGsk2.png" onclick="raidBuilds('PAGUB1')"><span class="skillCalc right">Holy<br>Sword</span></div>
-                <div class="treeItem" id="PAGUB2"><img   src="./Icons/Paladin/Guard/palaG8.jpg" onclick="raidBuilds('PAGUB2')"><span class="skillCalc right">Shield<br>Bash</span></div>
-                <div class="treeItem blank"></div>
-                <div class="treeItem"><img src="./Icons/reset.png" onclick="reset('PAGU000000000000000000000')"><span class="skillCalc right">Reset</span></div>
+                <div class="ultimateSkills">
+                <div class="treeItem" id="PAGUU09"><img src="./Icons/Barbarian/Thunder/barbT1.jpg" onclick="passivePopup('PAGUU09')"></div>
+                <div class="treeItem" id="PAGUU10"><img src="./Icons/Barbarian/Thunder/barbT2.jpg" onclick="passivePopup('PAGUU10')"></div>
+                <div class="treeItem" id="PAGUU11"><img src="./Icons/Barbarian/Thunder/barbT3.jpg" onclick="passivePopup('PAGUU11')"></div>
+                <div class="treeItem" id="PAGUU12"><img src="./Icons/Barbarian/Thunder/barbT4.jpg" onclick="passivePopup('PAGUU12')"></div>
+                <div class="treeItem" id="PAGUU13"><img src="./Icons/Barbarian/Thunder/barbT5.jpg" onclick="passivePopup('PAGUU13')"></div>
+                <div class="treeItem" id="PAGUU14"><img src="./Icons/Barbarian/Thunder/barbT6.jpg" onclick="passivePopup('PAGUU14')"></div>
+                <div class="treeItem" id="PAGUU15"><img src="./Icons/Barbarian/Thunder/barbT12.jpg" onclick="passivePopup('PAGUU15')"></div>
+                <div class="treeItem" id="PAGUU16"><img src="./Icons/Barbarian/Thunder/barbT8.jpg" onclick="passivePopup('PAGUU16')"></div>
+                </div>
                 </div>
             </div>
         </div>
@@ -290,7 +304,7 @@
                 <div class="stoneItem stoneBlank"></div>
                 <div class="stoneItem"><img id = "GUC01" class="circle" loading="lazy" src="./Icons/Stone/start.png" onclick="passivePopup('PAGUC01', 'circle')"><span class="stoneCalc"><span id="PAGUC01" class="zero">1</span>/1</span></div>
                 <div class="stoneItem stoneBlank"></div>
-                <div class="stoneItem"><img class="square" src="./Icons/reset.png" onclick="resetStone('10000000000000000000000000000000000000000000000000000000000', 'WAWS')"><span class="resetText">Reset</span></div>
+                <div class="stoneItem"><img class="square" src="./Icons/reset.png" onclick="resetStone('10000000000000000000000000000000000000000000000000000000000', 'PAGU')"><span class="resetText">Reset</span></div>
                 <div class="stoneItem stoneBlank"></div>
             </div>
         </div>
@@ -313,7 +327,7 @@
             if (params.has('skill') === true) {
                 setTalents(params.get('skill'));
             }
-            else {setParams(skillCode.join(''));
+            else {setParams(skillCode.join(''), 'skill');
             }
         }
     window.onpageshow = loadParams; 

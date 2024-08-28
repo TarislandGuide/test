@@ -47,13 +47,21 @@ body {
 }
 .selectClass {
     display: flex;
-    overflow: scroll;
     background-color: var(--beige);
+    overflow: scroll;
     gap: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+.newsFeed, .infoFeed {
+    display: flex;
+    background-color: var(--beige);
     padding-left: 1.5rem;
-    padding-right: 1rem;
+    padding-right: 1.5rem;
+}
+.newsFeed{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 ::-webkit-scrollbar {
     width: 0px;
@@ -348,6 +356,20 @@ body {
     width: 1.5rem;
     background-color: var(--midBrown);
     border-radius: 50%;
+}
+.star {
+    position: absolute;
+    top: -1.8rem;
+    right: 0.8rem;
+    color: var(--green);
+    filter: drop-shadow(0 0 0.75rem black)
+}
+.triangle {
+    position: absolute;
+    top: -1.3rem;
+    right: 0.5rem;
+    color: var(--red);
+    filter: drop-shadow(0 0 0.75rem black)
 }
 .rotate {
     writing-mode:vertical-rl;
