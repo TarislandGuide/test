@@ -524,7 +524,7 @@ input::placeholder{
         right: 0.2rem;
     }   
     .triangle h1, .star h1 {
-        font-size: 2rem;
+        font-size: 2rem !important;
     }
     .plusMinus {
         width: 2.5rem;
