@@ -523,8 +523,7 @@ input::placeholder{
         font-size: 2rem;
     }
     .triangle {
-        top: 0.1rem;
-        right: 0.25rem;
+        right: 0.4rem;
         font-size: 1.75rem;
     }   
     .plusMinus {
