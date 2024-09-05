@@ -10,7 +10,7 @@
     --yellow: gold;
     --orange: rgb(216, 134, 27);
     --red: rgb(212, 55, 55);
-    --blue: rgb(71, 162, 214);
+    --blue: rgb(94, 177, 224);
     --purple: rgb(156, 70, 236);
     }
 
@@ -25,14 +25,26 @@ body {
 
 .wrapper {
     margin: auto;
-    max-width: 30rem;
+    max-width: 60rem;
     position: relative;
+    background: var(--beige);
 }
 #Talents {
     display: block;
 }
 #Stone {
+    display: block;
+}
+#treeSelect {
     display: none;
+}
+#Ults {
+    display: block;
+}
+.showTrees {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 .skillTree {
     display: grid;
@@ -113,7 +125,25 @@ body {
 }
 .ultimateSkills {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-gap: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.Skills {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.specSelect {
+    display: grid;
+    grid-template-columns: 2fr 0.7fr 6rem 6rem 1fr 2fr;
     grid-gap: 1rem;
     padding-top: 2rem;
     padding-bottom: 1.5rem;
@@ -535,5 +565,25 @@ input::placeholder{
     }
     .below {
         right: 2.25rem;
+    }
+    #Stone {
+        display: none;
+    }
+    #treeSelect {
+        display: block;
+    }
+    .showTrees {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .specSelect {
+        grid-template-columns: 0 1fr 1fr 1fr 1fr 0;
+    }
+    .ultimateSkills {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    #blankTree {
+        display: none;
     }
 }
