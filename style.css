@@ -1,17 +1,28 @@
 :root {
     --darkTrans: #22222280;
-    --brown: rgb(65, 56, 49);
-    --midBrown: rgb(104, 77, 55);
+    --brown: rgb(54, 49, 45);
+    --brownTrans :rgba(65, 56, 49, 0.85);
+    --midBrown: rgb(83, 67, 53);
     --pale: rgb(153, 136, 122);
-    --beige: #ffe4c4;
-    --darkBeige: #dabf9e;
-    --sepia: #ac7e46;
+    --grayPale: rgba(145, 137, 131, 0.712);
+    --beige: #f1dcc2;
+    --darkBeige: #d1bca3;
+    --sepia: #af8c61;
     --green: rgb(40, 202, 40);
+    --greenTrans: rgba(118, 145, 118, 0.651);
+    --seaGreenTrans: rgba(122, 173, 171, 0.651);
+    --necroGreenTrans: rgba(119, 155, 149, 0.651);
     --yellow: gold;
-    --orange: rgb(216, 134, 27);
+    --yellowTrans: rgba(180, 143, 93, 0.651);
+    --orange: rgb(224, 138, 25);
+    --orangeTrans: rgba(160, 105, 54, 0.651);
     --red: rgb(212, 55, 55);
+    --redTrans: rgba(158, 99, 99, 0.651);
     --blue: rgb(94, 177, 224);
+    --blueTrans: rgba(99, 141, 158, 0.651);
     --purple: rgb(156, 70, 236);
+    --purpleTrans: rgba(116, 89, 141, 0.651);
+    --bright: rgb(255, 253, 242);
     }
 
 body {
@@ -21,6 +32,9 @@ body {
     min-width: 100vw;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     color: var(--beige);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
 .wrapper {
@@ -29,10 +43,10 @@ body {
     position: relative;
     background: var(--beige);
 }
-#Talents, #Stone, #Ults, #newsPC {
+#Talents, #Stone, #Ults {
     display: block;
 }
-#treeSelect, #newsMobile {
+#treeSelect {
     display: none;
 }
 .showTrees {
@@ -59,20 +73,29 @@ body {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-.newsFeed {
-    display: flex;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    background-color: var(--beige);
-    padding-top: 1rem;
-    padding-bottom: 0.5rem;
-}
 .infoFeed{
-    display: flex;
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 0.7fr 0.7fr;
+    grid-template-areas:
+    'name skill build'
+    'tags skill build';
+    grid-column-gap: 0.5rem;
     background-color: var(--darkBeige);
+    color: var(--midBrown);
     border-radius: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+.gridName { 
+    padding-top: 0.9rem;
+    grid-area: name; 
+}
+.gridSkill { 
+    grid-area: skill; 
+}
+.gridBuild { 
+    grid-area: build; 
 }
 ::-webkit-scrollbar {
     width: 0px;
@@ -163,6 +186,12 @@ body {
     align-items: center;
     justify-content: center;
 }
+.treeItem.builds {
+    grid-row: 1 / span 2;
+    align-items: end;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 .stoneTree {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -193,13 +222,13 @@ body {
 .skillCalc {
     border-radius: 0.5rem 0 0.5rem 0;
     bottom: 0;
-    right: 0.5rem;
+    right: 0.25rem;
 }
 .stoneCalc {
     border-radius: 0.5rem;
     font-size: small;
     bottom: 0.2rem;
-    right: 1rem;
+    right: 0.85rem;
 }
 .resetText {
     border-radius: 0.5rem 0 0.5rem 0;
@@ -210,8 +239,8 @@ body {
 .linkB {
     position: absolute;
     left: 1.75rem;
-    height: 2rem;
-    bottom: -2rem;
+    height: 2.5rem;
+    bottom: -2.5rem;
 }
 .linkBR {
     left: 2.75rem;
@@ -266,6 +295,10 @@ body {
     width: 3.5rem;
     z-index: 3;
 }
+.stoneItem img.octagon {
+    position: absolute;
+    width: 4rem;
+}
 .skillItem img, .classItem img, .popImg, .popSkillCalc, .skillCalc, h2, #plus, #minus, #skillOverlay .selectClass{
     -webkit-user-drag: none;
     user-select: none;
@@ -290,9 +323,13 @@ body {
     align-items: center;
     color: var(--midBrown);
 }
+.blankSmall {
+    height: 2rem;
+}
 .stoneBlank {
     display: flex;
     align-items: center;
+    height: 3.5rem;
 }
 .treeIcon img {
     border-radius: 50%;
@@ -349,6 +386,33 @@ body {
 .brown {
     color: var(--midBrown)
 }
+.bgPale {
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--grayPale) 100%);
+}
+.bgGreen{
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--greenTrans) 100%);
+}
+.bgSeaGreen {
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--seaGreenTrans) 100%);
+}
+.bgNecro {
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--necroGreenTrans) 100%);
+}
+.bgRed{
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--redTrans) 100%);
+}
+.bgOrange{
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--orangeTrans) 100%);
+}
+.bgYellow{
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--yellowTrans) 100%);
+}
+.bgBlue{
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--blueTrans) 100%);
+}
+.bgPurple{
+    background: linear-gradient(90deg, var(--darkBeige) 0%, var(--purpleTrans) 100%);
+}
 .gray {
     filter: grayscale(85%);
 }
@@ -362,31 +426,30 @@ body {
 #iconWeapon {
     filter: opacity(40%);
 }
-.circle {
-    border-radius: 50%;
-    outline: 1px solid var(--sepia);
-    outline-offset: -1px;
+.unpop {
+    opacity: 0.7;
+    filter: grayscale(50%);
+}
+.meta {
+    outline: 3px solid var(--beige);
+    outline-offset: -2px;
+    filter: drop-shadow(0 0 0.15rem var(--brown));
+}
+.normal {
+    box-shadow: 0 0 0rem var(--brown);
+}
+.stoneItem img.diamond {
+    position: absolute;
+    width: 4.5rem;
+    top: -1.25rem;
+    left: -0.5rem;
 }
 .square {
     border-radius: 0.5rem;
-    outline: 1px solid var(--sepia);
-    outline-offset: -1px;
 }
-.octagon {
-    clip-path: polygon(50% 0, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0 50%, 15% 15%);
-}
-.diamond {
-    clip-path: polygon(50% 1%, 98% 50%, 50% 99%, 1% 50%);
-    position: absolute;
-    top: -2.4rem;
-    left: -1.8rem;
-}
-.shadow {
-    filter: 
-        drop-shadow( 1px  0px 0px var(--sepia)) 
-        drop-shadow(-1px  0px 0px var(--sepia))
-        drop-shadow( 0px  1px 0px var(--sepia)) 
-        drop-shadow( 0px -1px 0px var(--sepia));
+.treeItem img.circle {
+    width: 4rem;
+    border-radius: 50%;
 }
 .dot {
     height: 1.5rem;
@@ -397,12 +460,12 @@ body {
 .star {
     font-size: 2.5rem;
     top: -0.7rem;
-    right: 0.7rem;
+    right: 0.2rem;
 }
 .triangle {
     font-size: 2rem;
     top: 0rem;
-    right: 0.5rem;
+    right: 0.2rem;
 }
 .star, .triangle {
     position: absolute;
@@ -447,30 +510,21 @@ body {
 .notes {
     font-size: 2rem;
 }
-.textBox {
-    margin-left: 2rem;
-    margin-top: 1rem;
-    padding: 0.3rem;
-    font-size: medium;
-    background-color: var(--beige);
-    color: var(--midBrown);
-    outline: none;
-    border: 1px solid var(--brown);
+.role img {
+    width: 2.5rem;
 }
-.button{
-    margin-left: 1rem;
-    margin-top: 0.75rem;
-    padding: 0.3rem;
-    font-size: medium;
-    background-color: var(--midBrown);
-    color: var(--beige);
-    outline: none;
-    border: 1px solid var(--midbrown);
-    border-radius: 0.25rem;
+.role {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
 }
-input::placeholder{
-    color: var(--brown);
-  }
+.roleIcon {
+    width: 10rem;
+    position: absolute;
+    opacity: 15%;
+    top: -1.5rem;
+    left: 4rem;
+}
 .nudge {
     margin-left: 2rem;
 }
@@ -487,6 +541,9 @@ input::placeholder{
     body {
         background-color: var(--beige);
     }
+    .wrapper {
+        max-width: 100vw;
+    }
     .stoneTree {
         grid-row-gap: 1.75rem;
         grid-column-gap: 0.25rem;
@@ -494,7 +551,18 @@ input::placeholder{
         padding-right: 0.3rem; 
     }
     .stoneItem img {
-        max-width: 3rem;
+        width: 3rem;
+    }
+    .stoneItem img.diamond {
+        width: 4rem;
+        top: -1;
+        left: -0.3rem;
+    }
+    .stoneItem img.octagon {
+        width: 3.5rem;
+    }
+    .stoneBlank {
+        height: 3rem;
     }
     .stoneCalc {
         right: 0.8rem;
@@ -505,11 +573,17 @@ input::placeholder{
     .treeItem img, .popImg {
         max-width: 4.5rem;
     }
+    .treeItem img.circle {
+        width: 3.3rem;
+    }
     .popImg{
         margin-right: 2.5rem;
     }
+    .role img {
+        width: 2rem;
+    }
     .skillItem img, .treeIcon img {
-        max-width: 4rem;
+        width: 4.3rem;
     }
     .classItem {
         max-width: 5rem;
@@ -527,7 +601,15 @@ input::placeholder{
         grid-gap: 0.75rem;
     }
     .blank {
-        min-height: 4.5rem;
+        height: 4.5rem;
+    }
+    .blankSmall {
+        height: 0.5rem;
+    }
+    .Skills {
+        padding-top: 0.5rem;
+        grid-gap:0rem;
+        grid-row-gap: 0.5rem;
     }
     .skillCalc {
         bottom: 0.05rem;
@@ -535,14 +617,14 @@ input::placeholder{
         line-height: 1;
     }
     .linkB {
-        left: 1.55rem;
-        bottom: -1.75rem;
+        left: 1.6rem;
+        bottom: -2rem;
     }
     .linkBL {
-        left: 1rem;
+        left: 0.9rem;
     }
     .linkBR {
-        left: 2.1rem;
+        left: 2.4rem;
     }
     .req, .long {
         right: 2.25rem;
@@ -550,17 +632,13 @@ input::placeholder{
     .req {
         bottom: -2.97rem;
     }
-    .diamond {
-        top: -2rem;
-        left: -1.45rem;
-    }
     .star {
-        top: -0.45rem;
-        right: 0.4rem;
+        top: -0.5rem;
+        right: 0.2rem;
         font-size: 2rem;
     }
     .triangle {
-        right: 0.4rem;
+        right: 0.2rem;
         font-size: 1.75rem;
     }   
     .plusMinus {
@@ -573,10 +651,10 @@ input::placeholder{
     .below {
         right: 2.25rem;
     }
-    #Stone, #blankTree, #newsPC {
+    #Stone {
         display: none;
     }
-    #treeSelect, #newsMobile {
+    #treeSelect {
         display: block;
     }
     .showTrees {
@@ -592,5 +670,62 @@ input::placeholder{
     }
     .feed {
         grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 360px) {
+    .talents {
+        grid-gap: 0.2rem;
+    }
+    .skillItem img, .treeIcon img {
+        max-width: 3.8rem;
+    }
+    .classItem img {
+        max-width: 4.5rem;
+    }
+    .treeItem img, .popImg {
+        max-width: 4rem;
+    }
+    .blank {
+        height: 3.5rem;
+    }
+    .skillCalc {
+        bottom: 0.1rem;
+        right: 0.4rem;
+        line-height: 0.8;
+    }
+    .stoneCalc {
+        right: 0.7rem;
+    }
+    .req {
+        bottom: -2.85rem;
+    }
+    .popup {
+        width: 19rem;
+        padding: 1rem;
+        margin-left: 1rem;
+    }
+    #plus, #minus {
+        max-width: 2.7rem;
+    }
+    .stoneItem img {
+        width: 2.8rem;
+    }
+    .stoneItem img.diamond {
+        width: 3.7rem;
+        top: -1;
+        left: -0.3rem;
+    }
+    .stoneItem img.octagon {
+        width: 3.3rem;
+    }
+    .linkB {
+        left: 1.45rem;
+        bottom: -2rem;
+    }
+    .linkBL {
+        left: 0.7rem;
+    }
+    .linkBR {
+        left: 2.2rem;
     }
 }

@@ -91,7 +91,7 @@ function stonePopup(value, shape) {
     pos = value.replace(/^[A-Z0]+/, '');
     let skill = talents.find(search);
     const info = skill.variable.split(",");
-    document.getElementById("skillPopup").innerHTML = "<img class='popImg " + shape + "' src='"+ skill.icon + "'><span class='popSkillCalc'> " + stoneCode[pos] + "/" + skill.max + " </span><img id='minus' src='./Icons/minus.png' onclick='minusStone(\"" 
+    document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><span class='popSkillCalc'> " + stoneCode[pos] + "/" + skill.max + " </span><img id='minus' src='./Icons/minus.png' onclick='minusStone(\"" 
     + skill.id + '\",\" ' + shape + "\")'>  </span><img id='plus' src='./Icons/plus.png' onclick='plusStone(\"" + skill.id + '\",\" ' + shape + "\")'><h2> " + skill.name + "</h2><br>" + eval('`'+ skill.description +'`');
     if (testStone(value) === true) {
         document.getElementById('plus').className = "colour";
@@ -124,12 +124,34 @@ function skillPopup(value) {
     + skill.range + " m</span><br>Cast Time: <span class = 'orange'>" + skill.speed + "</span><br>Cooldown: <span class = 'orange'>" + skill.cooldown + " sec</span><br><br>" + eval('`'+ skill.description +'`');
 }
 
+function buildsPopup(value) {
+    document.getElementById("skillOverlay").style.display = "block";
+    function search(v){
+        return value === v.id;
+    }
+    let skill = builds.find(search);
+    const info = skill.variable.split(",");
+    document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><h2> " + eval('`'+ skill.name +'`') + "</h2><br>Cast Range: <span class = 'orange'>" 
+    + skill.range + " m</span><br>Cast Time: <span class = 'orange'>" + skill.speed + "</span><br>Cooldown: <span class = 'orange'>" + skill.cooldown + " sec</span><br><br>" + eval('`'+ skill.description +'`');
+}
+
 function skillCostPopup(value) {
     document.getElementById("skillOverlay").style.display = "block";
     function search(v){
         return value === v.id;
     }
     let skill = talents.find(search);
+    const info = skill.variable.split(",");
+    document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><h2> " + skill.name + "</h2><br>Cast Range: <span class = 'orange'>" 
+    + skill.range + " m</span><br>Resource: <span class = 'orange'>" + skill.cost + "</span><br>Cast Time: <span class = 'orange'>" + skill.speed + "</span><br>Cooldown: <span class = 'orange'>" + skill.cooldown + " sec</span><br><br>" + eval('`'+ skill.description +'`');
+}
+
+function buildsCostPopup(value) {
+    document.getElementById("skillOverlay").style.display = "block";
+    function search(v){
+        return value === v.id;
+    }
+    let skill = builds.find(search);
     const info = skill.variable.split(",");
     document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><h2> " + skill.name + "</h2><br>Cast Range: <span class = 'orange'>" 
     + skill.range + " m</span><br>Resource: <span class = 'orange'>" + skill.cost + "</span><br>Cast Time: <span class = 'orange'>" + skill.speed + "</span><br>Cooldown: <span class = 'orange'>" + skill.cooldown + " sec</span><br><br>" + eval('`'+ skill.description +'`');
@@ -225,6 +247,15 @@ function resetStone(code, classCode) {
     setParams(encode(rest), 'stone');
 }
 
+function copy(value) {
+    window.navigator.clipboard.writeText(value);
+    document.getElementById("copy1").innerHTML = "Copied";
+    document.getElementById("copy2").innerHTML = "Copied";
+    setTimeout( function() {
+        document.getElementById("copy1").innerHTML = "Copy";
+        document.getElementById("copy2").innerHTML = "Copy";
+    }, 1500);
+}
 
 function setTalents(code) {
     var num = code.replace(/[A-Z]/g, '');
@@ -276,11 +307,21 @@ function stoneTotal() {
 
 function raidBuilds(value) {
     function search(v){
-        return value === v.Id;
+        return value === v.id;
     }
     let buildCode = builds.find(search);
-    setTalents(buildCode.SkillCode);
-    setParams(buildCode.SkillCode, 'skill');
+    setTalents(buildCode.Skill);
+    setStone([1, ...decode(buildCode.Stone)].join(''), skillCode[0]);   
+    setParams(buildCode.Skill, 'skill');
+    setParams(buildCode.Stone, 'stone');
+}
+
+function linkBuilds(value) {
+    function search(v){
+        return value === v.id;
+    }
+    let buildCode = builds.find(search);
+    window.location =  `./${value.slice(0, 4)}.html?skill=${buildCode.Skill}&stone=${buildCode.Stone}`;
 }
 
 function updateParams(code, key) {
