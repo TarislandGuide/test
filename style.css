@@ -73,9 +73,9 @@ body {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-.infoFeed{
+.buildsFeed {
     position: relative;
-    display: grid;
+    display: none;
     grid-template-columns: 2fr 0.7fr 0.7fr;
     grid-template-areas:
     'name skill build'
@@ -86,6 +86,9 @@ body {
     border-radius: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+.infoFeed {
+    grid-template-columns: 1fr;
 }
 .gridName { 
     padding-top: 0.9rem;
@@ -102,7 +105,7 @@ body {
     height: 0px;
     background: transparent;
 }
-.levelReq {
+.sideBar {
     display: grid;
     background-image: linear-gradient(90deg, var(--beige) 0%, var(--beige) 55%, var(--midBrown) 55%, var(--midBrown) 70%, var(--beige) 70%, var(--beige) 100%);
     gap: 1rem;
@@ -175,19 +178,19 @@ body {
 .feed {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 7rem 7rem 7rem 7rem auto;
     grid-gap: 1.5rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
     margin-bottom: 1rem;
 }
-.treeItem, .skillitem, .treeIcon {
+.treeItem, .skillitem, .treeIcon, .filterBarItem {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .treeItem.builds {
-    grid-row: 1 / span 2;
     align-items: end;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -482,10 +485,16 @@ body {
 .rect {
     height: 7rem;
 }
-.rectSpec {
+.rectSmall {
     height: 4.5rem;
 }
-.rect, .rectSpec {
+.rectLong {
+    height: 10rem;
+}
+.rectFilter {
+    height: 15.5rem;
+}
+.rect, .rectSmall, .rectLong, .rectFilter {
     width: 1.5rem;
     background-color: var(--midBrown);
     border-radius: 0.5rem;
@@ -507,6 +516,39 @@ body {
     bottom: -0.7rem;
     color: var(--midBrown);
 }
+.filterBar {
+    grid-template-rows: 4rem 15.5rem 7rem 10rem auto;
+}
+.filterBar img {
+    width: 1.25rem;
+    padding-left: 0.15rem;
+    padding-top: 0.15rem;
+}
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+    padding-inline: 0px;
+    padding-block: 0px;
+}
+.filterBarItem .btn {
+    filter: brightness(0) saturate(100%) invert(99%) sepia(12%) saturate(2491%) hue-rotate(304deg) brightness(98%) contrast(92%);
+}
+  
+.btn:hover {
+    filter: brightness(0) saturate(100%) invert(71%) sepia(7%) saturate(2335%) hue-rotate(121deg) brightness(98%) contrast(95%);
+}
+  
+.btn.active {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(24%) saturate(4963%) hue-rotate(124deg) brightness(95%) contrast(104%);
+}
+.show {
+    display: grid;
+}
+.top {
+    align-items: start;
+}
 .notes {
     font-size: 2rem;
 }
@@ -526,7 +568,7 @@ body {
     left: 4rem;
 }
 .nudge {
-    margin-left: 2rem;
+    margin-top: 0.3rem;
 }
 .border {
     outline: 3px solid var(--sepia);
@@ -607,7 +649,7 @@ body {
         height: 0.5rem;
     }
     .Skills {
-        padding-top: 0.5rem;
+        padding-top: 1.5rem;
         grid-gap:0rem;
         grid-row-gap: 0.5rem;
     }
@@ -651,7 +693,7 @@ body {
     .below {
         right: 2.25rem;
     }
-    #Stone {
+    #Stone, #blankTree {
         display: none;
     }
     #treeSelect {
@@ -670,9 +712,10 @@ body {
     }
     .feed {
         grid-template-columns: 1fr;
+        grid-template-rows: 6.5rem 6.5rem 6.5rem 6.5rem auto;
     }
 }
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 375px) {
     .talents {
         grid-gap: 0.2rem;
     }
@@ -717,6 +760,15 @@ body {
     }
     .stoneItem img.octagon {
         width: 3.3rem;
+    }
+    .gridName, .role {
+        font-size: 0.8rem;
+    }
+    .blank {
+        font-size: 0.9rem;
+    }
+    .feed {
+        grid-template-rows: 6rem 6rem 6rem 6rem auto;
     }
     .linkB {
         left: 1.45rem;

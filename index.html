@@ -16,7 +16,7 @@
         }
     loadParams();
       </script>
-    <meta id='viewport' name="viewport" content="width=device-width"/>
+    <meta id='viewport' name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="utf-8">
     <meta name="robots" content="index,follow">
     <title>Tarisland Talent & Inscribed Stone Trees Calculator</title>
@@ -31,8 +31,8 @@
   <body>
     <div class="wrapper">
       <div class="spec">   <!--Class Select-->
-          <div class="levelReq">
-              <div class="treeItem"><span class="rectSpec"></span><span class="rotate"><b>Class</b></span></div>
+          <div class="sideBar">
+              <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>Class</b></span></div>
           </div>
           <div class="selectClass" id="classScroll">
               <div class="classItem"><img alt="Home" src="./Icons/Class/home.png" draggable="false" ondragstart="return false;" onclick="selectClass('home')" class="border"></div>
@@ -47,244 +47,252 @@
               <div class="classItem"><img alt="Necro" src="./Icons/Class/necro.png" draggable="false" ondragstart="return false;" onclick="selectClass('PNSH')"></div>
           </div>
       </div>
-      <div class="ultimates" id="blankTree">
-        <div class="levelReq">
-            <div class="treeItem"></div>
-        </div>
-        <div class="Skills">   
-        <div><span class="blankSmall"></span></div>
-        </div>
-    </div>
       <div class="info">   <!--Builds-->
         <div class="spec">
-          <div class="levelReq">
-            <div class="treeItem"><span class="rect"></span><span class="rotate"><b>Top Builds</b></span></div>
-            <div class="treeItem"><span class="rect"></span><p><b>8</b></p></div>
-            <div class="treeItem"><span class="rectSpec"></span><p><b>8</b></p></div>
+          <div class="sideBar filterBar">
+            <div class="filterBarItem"><span class="rectSmall"></span><span class="rotate"><b>Filter »</b></span></div>
+            <div class="filterBarItem"><span class="rectFilter">
+              <button class="btn" filter="warrior" group="blah"><img class="nudge" src="./Icons/RoleIcons/warriorMini.png"></button>
+              <button class="btn" filter="mage" group="blah"><img src="./Icons/RoleIcons/mageMini.png"></button>
+              <button class="btn" filter="ranger" group="blah"><img src="./Icons/RoleIcons/rangerMini.png"></button>
+              <button class="btn" filter="bard" group="blah"><img src="./Icons/RoleIcons/bardMini.png"></button>
+              <button class="btn" filter="paladin" group="blah"><img src="./Icons/RoleIcons/paladinMini.png"></button>
+              <button class="btn" filter="priest" group="blah"><img src="./Icons/RoleIcons/priestMini.png"></button>
+              <button class="btn" filter="barbarian" group="blah"><img src="./Icons/RoleIcons/barbarianMini.png"></button>
+              <button class="btn" filter="shadow" group="blah"><img src="./Icons/RoleIcons/shadowMini.png"></button>
+              <button class="btn" filter="necro" group="blah"><img src="./Icons/RoleIcons/necroMini.png"></button></span>
+            </div>
+            <div class="filterBarItem"><span class="rect">
+              <img class="nudge" src="./Icons/RoleIcons/warriorMini.png">
+              <img src="./Icons/RoleIcons/mageMini.png">
+              <img src="./Icons/RoleIcons/rangerMini.png"></span>
+            </div>
+            <div class="filterBarItem"><span class="rectLong"></span><span class="rotate" id="blah"><b>All Raid Builds</b></span></div>
+            <div class="filterBarItem buildsBlank"></div>
           </div>
           <div class="feed">  
             <!--warrior-->
-            <div class="infoFeed bgRed meta"><img class="roleIcon" src="./Icons/RoleIcons/Warrior.png">
+            <div class="buildsFeed warrior bgRed meta"><img class="roleIcon" src="./Icons/RoleIcons/Warrior.png">
               <div class="gridName"><b>War Shield Warrior</b><br>Shield Assault<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Warrior/WarShield/warrSWsk2.png" onclick="buildsPopup('WAWSB1')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Warrior/WarShield/warrSWsk2.png" onclick="buildsCostPopup('WAWSB1')"></div>
               <div class="treeItem gridBuild builds" id="WAWSB1"><img src="./Icons/Warrior/WarShield/warrWS23.jpg" onclick="linkBuilds('WAWSB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/tank.png"><small><b>&nbsp;&nbsp;Tank</b></small></div>
             </div>
-            <div class="infoFeed bgRed normal"><img class="roleIcon" src="./Icons/RoleIcons/Warrior.png">
+            <div class="buildsFeed warrior bgRed normal"><img class="roleIcon" src="./Icons/RoleIcons/Warrior.png">
               <div class="gridName"><b>War Shield Warrior</b><br>Shatter Shield<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Warrior/WarShield/warrWS9.jpg" onclick="buildsPopup('WAWSB2')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Warrior/WarShield/warrWS9.jpg" onclick="buildsCostPopup('WAWSB2')"></div>
               <div class="treeItem gridBuild builds" id="WAWSB2"><img src="./Icons/Warrior/WarShield/warrWS11.jpg" onclick="linkBuilds('WAWSB2')"></div>
               <div class="role"><img src="./Icons/tank.png"><small><b>&nbsp;&nbsp;Tank</b></small></div>
             </div>
-            <div class="infoFeed bgRed meta"><img class="roleIcon" src="./Icons/RoleIcons/Warrior.png">
+            <div class="buildsFeed warrior bgRed meta"><img class="roleIcon" src="./Icons/RoleIcons/Warrior.png">
               <div class="gridName"><b>Wrathful Warrior</b><br>Final Strike<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Warrior/Wrathful/warrWrsk2.png" onclick="buildsPopup('WAWRB1')"></div>
               <div class="treeItem gridBuild builds" id="WAWRB1"><img src="./Icons/Warrior/Wrathful/warrWr18.jpg" onclick="linkBuilds('WAWRB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgRed unpop"><img class="roleIcon" src="./Icons/RoleIcons/Warrior.png">
+            <div class="buildsFeed warrior bgRed unpop"><img class="roleIcon" src="./Icons/RoleIcons/Warrior.png">
               <div class="gridName"><b>Wrathful Warrior</b><br>Furious Stab<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Warrior/Wrathful/warrWr8.jpg" onclick="buildsPopup('WAWRB2')"></div>
               <div class="treeItem gridBuild builds" id="WAWRB2"><img src="./Icons/Warrior/Wrathful/warrWr3.jpg" onclick="linkBuilds('WAWRB2')"><span class="triangle">&#9660;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div> 
             <!--mage-->
-            <div class="infoFeed bgBlue meta"><img class="roleIcon" src="./Icons/RoleIcons/Mage.png">
+            <div class="buildsFeed mage bgBlue meta"><img class="roleIcon" src="./Icons/RoleIcons/Mage.png">
               <div class="gridName"><b>Frost Mage</b><br>Icicle Storm<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Mage/Frost/mageFrsk3.png" onclick="buildsPopup('MAFRB1')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Mage/Frost/mageFrsk3.png" onclick="buildsCostPopup('MAFRB1')"></div>
               <div class="treeItem gridBuild builds" id="MAFRB1"><img src="./Icons/Mage/Frost/mageFrsk8.png" onclick="linkBuilds('MAFRB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgBlue unpop"><img class="roleIcon" src="./Icons/RoleIcons/Mage.png">
+            <div class="buildsFeed mage bgBlue unpop"><img class="roleIcon" src="./Icons/RoleIcons/Mage.png">
               <div class="gridName"><b>Frost Mage</b><br>Arctic Icicle<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Mage/Frost/mageFr8.jpg" onclick="buildsPopup('MAFRB2')"></div>
               <div class="treeItem gridBuild builds" id="MAFRB2"><img src="./Icons/Mage/Frost/mageFrsk10.png" onclick="linkBuilds('MAFRB2')"><span class="triangle">&#9660;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgBlue normal"><img class="roleIcon" src="./Icons/RoleIcons/Mage.png">
+            <div class="buildsFeed mage bgBlue normal"><img class="roleIcon" src="./Icons/RoleIcons/Mage.png">
               <div class="gridName"><b>Flame Mage</b><br>Skyfire<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Mage/Flame/mageFlsk1.png" onclick="buildsPopup('MAFLB1')"></div>
               <div class="treeItem gridBuild builds" id="MAFLB1"><img src="./Icons/Mage/Flame/mageFl19.jpg" onclick="linkBuilds('MAFLB1')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div>
-            <div class="infoFeed bgBlue normal"><img class="roleIcon" src="./Icons/RoleIcons/Mage.png">
+            <div class="buildsFeed mage bgBlue normal"><img class="roleIcon" src="./Icons/RoleIcons/Mage.png">
               <div class="gridName"><b>Flame Mage</b><br>Fireball<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Mage/Flame/mageFl8.jpg" onclick="buildsPopup('MAFLB2')"></div>
               <div class="treeItem gridBuild builds" id="MAFLB2"><img src="./Icons/Mage/Flame/mageFl14.png" onclick="linkBuilds('MAFLB2')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div>
             <!--ranger-->
-            <div class="infoFeed bgGreen meta"><img class="roleIcon" src="./Icons/RoleIcons/Ranger.png">
+            <div class="buildsFeed ranger bgGreen meta"><img class="roleIcon" src="./Icons/RoleIcons/Ranger.png">
               <div class="gridName"><b>Hunting Ranger</b><br>Sniper Shot<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Ranger/Hunting/huntHsk2.png" onclick="buildsPopup('RAHUB1')"></div>
               <div class="treeItem gridBuild builds" id="RAHUB1"><img src="./Icons/Ranger/Hunting/huntHsk3.png" onclick="linkBuilds('RAHUB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgGreen normal"><img class="roleIcon" src="./Icons/RoleIcons/Ranger.png">
+            <div class="buildsFeed ranger bgGreen normal"><img class="roleIcon" src="./Icons/RoleIcons/Ranger.png">
               <div class="gridName"><b>Hunting Ranger</b><br>Magic Shot<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Ranger/Hunting/huntH9.jpg" onclick="buildsPopup('RAHUB2')"></div>
               <div class="treeItem gridBuild builds" id="RAHUB2"><img src="./Icons/Ranger/Hunting/huntH2.jpg" onclick="linkBuilds('RAHUB2')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgGreen unpop"><img class="roleIcon" src="./Icons/RoleIcons/Ranger.png">
+            <div class="buildsFeed ranger bgGreen unpop"><img class="roleIcon" src="./Icons/RoleIcons/Ranger.png">
               <div class="gridName"><b>Beast Ranger</b><br>Viper Shot<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Ranger/TamedBeast/huntTBsk2.png" onclick="buildsPopup('RATBB1')"></div>
               <div class="treeItem gridBuild builds" id="RATBB1"><img src="./Icons/Ranger/TamedBeast/huntTBsk8.png" onclick="linkBuilds('RATBB1')"><span class="triangle">&#9660;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div>
-            <!--  <div class="infoFeed bgGreen unpop"><img class="roleIcon" src="./Icons/RoleIcons/Ranger.png">
+            <!--  <div class="buildsFeed ranger bgGreen unpop"><img class="roleIcon" src="./Icons/RoleIcons/Ranger.png">
               <div class="gridName"><b>Beast Ranger</b><br>Hornet Shot<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Ranger/TamedBeast/huntTB8.jpg" onclick="buildsPopup('RATBB2')"></div>
               <div class="treeItem gridBuild builds" id="RATBB2"><img src="./Icons/Ranger/TamedBeast/huntTB7.jpg" onclick="linkBuilds('RATBB2')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div>  -->
             <!--bard-->
-            <div class="infoFeed bgSeaGreen meta"><img class="roleIcon" src="./Icons/RoleIcons/Bard.png">
+            <div class="buildsFeed bard bgSeaGreen meta"><img class="roleIcon" src="./Icons/RoleIcons/Bard.png">
               <div class="gridName"><b>Solo Bard</b><br>Elegant Melody<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Solo/bardSsk10.png" onclick="buildsPopup('BDSLB1')"></div>
               <div class="treeItem gridBuild builds" id="BDSLB1"><img src="./Icons/Bard/Solo/bardS13.jpg" onclick="linkBuilds('BDSLB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgSeaGreen unpop"><img class="roleIcon" src="./Icons/RoleIcons/Bard.png">
+            <div class="buildsFeed bard bgSeaGreen unpop"><img class="roleIcon" src="./Icons/RoleIcons/Bard.png">
               <div class="gridName"><b>Solo Bard</b><br>Powerful Melody<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Solo/bardSsk2.png" onclick="buildsPopup('BDSLB2')"></div>
               <div class="treeItem gridBuild builds" id="BDSLB2"><img src="./Icons/Bard/Solo/bardS12.jpg" onclick="linkBuilds('BDSLB2')"><span class="triangle">&#9660;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgSeaGreen normal"><img class="roleIcon" src="./Icons/RoleIcons/Bard.png">
+            <div class="buildsFeed bard bgSeaGreen normal"><img class="roleIcon" src="./Icons/RoleIcons/Bard.png">
               <div class="gridName"><b>Harmony Bard</b><br>Aurora's Harp<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Harmony/bardHsk7.png" onclick="buildsPopup('BDHAB1')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Harmony/bardHsk7.png" onclick="buildsCostPopup('BDHAB1')"></div>
               <div class="treeItem gridBuild builds" id="BDHAB1"><img src="./Icons/Bard/Harmony/bardH15.jpg" onclick="linkBuilds('BDHAB1')"></div>
               <div class="role"><img src="./Icons/heal.png"><small><b>&nbsp;&nbsp;Healer</b></small></div>
             </div>
-            <div class="infoFeed bgSeaGreen normal"><img class="roleIcon" src="./Icons/RoleIcons/Bard.png">
+            <div class="buildsFeed bard bgSeaGreen normal"><img class="roleIcon" src="./Icons/RoleIcons/Bard.png">
               <div class="gridName"><b>Harmony Bard</b><br>Music Wall<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Harmony/bardHsk3.png" onclick="buildsPopup('BDHAB2')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Harmony/bardHsk3.png" onclick="buildsCostPopup('BDHAB2')"></div>
               <div class="treeItem gridBuild builds" id="BDHAB2"><img src="./Icons/Bard/Harmony/bardH3.jpg" onclick="linkBuilds('BDHAB2')"></div>
               <div class="role"><img src="./Icons/heal.png"><small><b>&nbsp;&nbsp;Healer</b></small></div>
             </div>
             <!--paladin-->
-            <div class="infoFeed bgYellow normal"><img class="roleIcon" src="./Icons/RoleIcons/Paladin.png">
+            <div class="buildsFeed paladin bgYellow normal"><img class="roleIcon" src="./Icons/RoleIcons/Paladin.png">
               <div class="gridName"><b>Guard Paladin</b><br>Holy Sword<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Paladin/Guard/palaGsk2.png" onclick="buildsPopup('PAGUB1')"></div>
               <div class="treeItem gridBuild builds" id="PAGUB1"><img src="./Icons/Paladin/Guard/palaGsk7.png" onclick="linkBuilds('PAGUB1')"></div>
               <div class="role"><img src="./Icons/tank.png"><small><b>&nbsp;&nbsp;Tank</b></small></div>
             </div>
-            <div class="infoFeed bgYellow meta"><img class="roleIcon" src="./Icons/RoleIcons/Paladin.png">
+            <div class="buildsFeed paladin bgYellow meta"><img class="roleIcon" src="./Icons/RoleIcons/Paladin.png">
               <div class="gridName"><b>Guard Paladin</b><br>Holy Shield Bash<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Paladin/Guard/palaG8.jpg" onclick="buildsPopup('PAGUB2')"></div>
               <div class="treeItem gridBuild builds" id="PAGUB2"><img src="./Icons/Warrior/WarShield/warrWS20.jpg" onclick="linkBuilds('PAGUB2')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/tank.png"><small><b>&nbsp;&nbsp;Tank</b></small></div>
             </div>
-            <div class="infoFeed bgYellow meta"><img class="roleIcon" src="./Icons/RoleIcons/Paladin.png">
+            <div class="buildsFeed paladin bgYellow meta"><img class="roleIcon" src="./Icons/RoleIcons/Paladin.png">
               <div class="gridName"><b>Justice Paladin</b><br>Judgement Strike<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Paladin/Justice/palaJsk3.png" onclick="buildsPopup('PAJUB1')"></div>
               <div class="treeItem gridBuild builds" id="PAJUB1"><img src="./Icons/Paladin/Justice/palaJsk9.png" onclick="linkBuilds('PAJUB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgYellow normal"><img class="roleIcon" src="./Icons/RoleIcons/Paladin.png">
+            <div class="buildsFeed paladin bgYellow normal"><img class="roleIcon" src="./Icons/RoleIcons/Paladin.png">
               <div class="gridName"><b>Justice Paladin</b><br>Judgement Sword<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Paladin/Justice/palaJ9.jpg" onclick="buildsPopup('PAJUB2')"></div>
               <div class="treeItem gridBuild builds" id="PAJUB2"><img src="./Icons/Paladin/Justice/palaJ12.jpg" onclick="linkBuilds('PAJUB2')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div> 
             <!--priest-->
-            <div class="infoFeed bgPale meta"><img class="roleIcon" src="./Icons/RoleIcons/Priest.png">
+            <div class="buildsFeed priest bgPale meta"><img class="roleIcon" src="./Icons/RoleIcons/Priest.png">
               <div class="gridName"><b>Grace Priest</b><br>Raider's Prayer<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Priest/Grace/priestGsk1.png" onclick="buildsPopup('PRDGB1')"></div>
               <div class="treeItem gridBuild builds" id="PRDGB1"><img src="./Icons/Priest/Grace/priestG21.jpg" onclick="linkBuilds('PRDGB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/heal.png"><small><b>&nbsp;&nbsp;Healer</b></small></div>
             </div> 
-            <div class="infoFeed bgPale normal"><img class="roleIcon" src="./Icons/RoleIcons/Priest.png">
+            <div class="buildsFeed priest bgPale normal"><img class="roleIcon" src="./Icons/RoleIcons/Priest.png">
               <div class="gridName"><b>Grace Priest</b><br>Beginner's Prayer<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Priest/Grace/priestGsk1.png" onclick="buildsPopup('PRDGB2')"></div>
               <div class="treeItem gridBuild builds" id="PRDGB2"><img src="./Icons/Priest/Grace/priestG19.jpg" onclick="linkBuilds('PRDGB2')"></div>
               <div class="role"><img src="./Icons/heal.png"><small><b>&nbsp;&nbsp;Healer</b></small></div>
             </div> 
-            <div class="infoFeed bgPale normal"><img class="roleIcon" src="./Icons/RoleIcons/Priest.png">
+            <div class="buildsFeed priest bgPale normal"><img class="roleIcon" src="./Icons/RoleIcons/Priest.png">
               <div class="gridName"><b>Retribution Priest</b><br>Pain Trail<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Priest/Retribution/priestR9.jpg" onclick="buildsPopup('PRDRB1')"></div>
               <div class="treeItem gridBuild builds" id="PRDRB1"><img src="./Icons/Priest/Retribution/ult5.jpg" onclick="linkBuilds('PRDRB1')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div>
-            <div class="infoFeed bgPale normal"><img class="roleIcon" src="./Icons/RoleIcons/Priest.png">
+            <div class="buildsFeed priest bgPale normal"><img class="roleIcon" src="./Icons/RoleIcons/Priest.png">
               <div class="gridName"><b>Retribution Priest</b><br>Agony Trail<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Priest/Retribution/priestRsk4.png" onclick="buildsPopup('PRDRB2')"></div>
               <div class="treeItem gridBuild builds" id="PRDRB2"><img src="./Icons/Priest/Retribution/ult7.jpg" onclick="linkBuilds('PRDRB2')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div>
             <!--barbarian-->
-            <div class="infoFeed bgOrange normal"><img class="roleIcon" src="./Icons/RoleIcons/Barbarian.png">
+            <div class="buildsFeed barbarian bgOrange normal"><img class="roleIcon" src="./Icons/RoleIcons/Barbarian.png">
               <div class="gridName"><b>Frozen Barbarian</b><br>Frost Cross<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Barbarian/Frozen/BarbF8.jpg" onclick="buildsPopup('BBFZB2')"></div>
               <div class="treeItem gridBuild builds" id="BBFZB2"><img src="./Icons/Barbarian/Frozen/BarbF22.jpg" onclick="linkBuilds('BBFZB2')"></div>
               <div class="role"><img src="./Icons/tank.png"><small><b>&nbsp;&nbsp;Tank</b></small></div>
             </div> 
-            <div class="infoFeed bgOrange normal"><img class="roleIcon" src="./Icons/RoleIcons/Barbarian.png">
+            <div class="buildsFeed barbarian bgOrange normal"><img class="roleIcon" src="./Icons/RoleIcons/Barbarian.png">
               <div class="gridName"><b>Frozen Barbarian</b><br>Storm Flying Axe<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Barbarian/Frozen/barbFsk7.png" onclick="buildsPopup('BBFZB1')"></div>
               <div class="treeItem gridBuild builds" id="BBFZB1"><img src="./Icons/Barbarian/Frozen/BarbF5.jpg" onclick="linkBuilds('BBFZB1')"></div>
               <div class="role"><img src="./Icons/tank.png"><small><b>&nbsp;&nbsp;Tank</b></small></div>
             </div> 
-            <div class="infoFeed bgOrange meta"><img class="roleIcon" src="./Icons/RoleIcons/Barbarian.png">
+            <div class="buildsFeed barbarian bgOrange meta"><img class="roleIcon" src="./Icons/RoleIcons/Barbarian.png">
               <div class="gridName"><b>Thunder Barbarian</b><br>Thunder Axe<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Barbarian/Thunder/barbT9.jpg" onclick="buildsPopup('BBTHB1')"></div>
               <div class="treeItem gridBuild builds" id="BBTHB1"><img src="./Icons/Barbarian/Thunder/barbT21.jpg" onclick="linkBuilds('BBTHB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div>
-            <!--<div class="infoFeed bgOrange unpop"><img class="roleIcon" src="./Icons/RoleIcons/Barbarian.png">
+            <!--<div class="buildsFeed barbarian bgOrange unpop"><img class="roleIcon" src="./Icons/RoleIcons/Barbarian.png">
               <div class="gridName"><b>Thunder Barbarian</b><br>Wrath of Thunder<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Barbarian/Thunder/barbTsk7.png" onclick="buildsPopup('BBTHB2')"></div>
               <div class="treeItem gridBuild builds" id="BBTHB2"><img src="./Icons/Barbarian/Thunder/barbT23.jpg" onclick="linkBuilds('BBTHB2')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div>  -->
             <!--shadow-->
-            <div class="infoFeed bgPurple unpop"><img class="roleIcon" src="./Icons/RoleIcons/Shadow.png">
+            <div class="buildsFeed shadow bgPurple unpop"><img class="roleIcon" src="./Icons/RoleIcons/Shadow.png">
               <div class="gridName"><b>Cunning Shadow</b><br>Twin Blade Slash<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Shadow/Cunning/shadCsk3.png" onclick="buildsPopup('SSCUB1')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Shadow/Cunning/shadCsk3.png" onclick="buildsCostPopup('SSCUB1')"></div>
               <div class="treeItem gridBuild builds" id="SSCUB1"><img src="./Icons/Shadow/Cunning/shadC13.jpg" onclick="linkBuilds('SSCUB1')"><span class="triangle">&#9660;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div>
-            <div class="infoFeed bgPurple unpop"><img class="roleIcon" src="./Icons/RoleIcons/Shadow.png">
+            <div class="buildsFeed shadow bgPurple unpop"><img class="roleIcon" src="./Icons/RoleIcons/Shadow.png">
               <div class="gridName"><b>Cunning Shadow</b><br>Phantom Slashes<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Shadow/Cunning/shadC2.jpg" onclick="buildsPopup('SSCUB2')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Shadow/Cunning/shadC2.jpg" onclick="buildsCostPopup('SSCUB2')"></div>
               <div class="treeItem gridBuild builds" id="SSCUB2"><img src="./Icons/Shadow/Cunning/shadC5.jpg" onclick="linkBuilds('SSCUB2')"><span class="triangle">&#9660;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div>
-            <div class="infoFeed bgPurple meta"><img class="roleIcon" src="./Icons/RoleIcons/Shadow.png">
+            <div class="buildsFeed shadow bgPurple meta"><img class="roleIcon" src="./Icons/RoleIcons/Shadow.png">
               <div class="gridName"><b>Duel Shadow</b><br>Swift Strike<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Shadow/Duel/shadDsk2.png" onclick="buildsPopup('SSDUB1')"></div>
               <div class="treeItem gridBuild builds" id="SSDUB1"><img src="./Icons/Shadow/Duel/shadD17.jpg" onclick="linkBuilds('SSDUB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div> 
-            <div class="infoFeed bgPurple normal"><img class="roleIcon" src="./Icons/RoleIcons/Shadow.png">
+            <div class="buildsFeed shadow bgPurple normal"><img class="roleIcon" src="./Icons/RoleIcons/Shadow.png">
               <div class="gridName"><b>Duel Shadow</b><br>Spectral Slash<br></div>
               <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Shadow/Duel/shadDsk3.png" onclick="buildsPopup('SSDUB2')"></div>
               <div class="treeItem gridBuild builds" id="SSDUB2"><img src="./Icons/Shadow/Duel/shadD23.jpg" onclick="linkBuilds('SSDUB2')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Melee DPS</b></small></div>
             </div> 
             <!--necro-->
-            <div class="infoFeed bgNecro meta"><img class="roleIcon" src="./Icons/RoleIcons/Necro.png">
+            <div class="buildsFeed necro bgNecro meta"><img class="roleIcon" src="./Icons/RoleIcons/Necro.png">
               <div class="gridName"><b>Soul Healing Necro</b><br>Soulguard<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Necro/SoulHealing/necroH9.jpg" onclick="buildsPopup('PNSHB1')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Necro/SoulHealing/necroH9.jpg" onclick="buildsCostPopup('PNSHB1')"></div>
               <div class="treeItem gridBuild builds" id="PNSHB1"><img src="./Icons/Necro/SoulHealing/necroHsk9.png" onclick="linkBuilds('PNSHB1')"><span class="star">&#9733;</span></div>
               <div class="role"><img src="./Icons/heal.png"><small><b>&nbsp;&nbsp;Healer</b></small></div>
             </div> 
-            <div class="infoFeed bgNecro normal"><img class="roleIcon" src="./Icons/RoleIcons/Necro.png">
+            <div class="buildsFeed necro bgNecro normal"><img class="roleIcon" src="./Icons/RoleIcons/Necro.png">
               <div class="gridName"><b>Soul Healing Necro</b><br>Tainted Soul<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Necro/SoulHealing/necroHsk4.png" onclick="buildsPopup('PNSHB2')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Necro/SoulHealing/necroHsk4.png" onclick="buildsCostPopup('PNSHB2')"></div>
               <div class="treeItem gridBuild builds" id="PNSHB2"><img src="./Icons/Necro/SoulHealing/necroH12.jpg" onclick="linkBuilds('PNSHB2')"></div>
               <div class="role"><img src="./Icons/heal.png"><small><b>&nbsp;&nbsp;Healer</b></small></div>
             </div> 
-            <div class="infoFeed bgNecro normal"><img class="roleIcon" src="./Icons/RoleIcons/Necro.png">
+            <div class="buildsFeed necro bgNecro normal"><img class="roleIcon" src="./Icons/RoleIcons/Necro.png">
               <div class="gridName"><b>Soul Snatch Necro</b><br>Bone Spirit<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Necro/SoulSnatch/necroSsk5.png" onclick="buildsPopup('PNSSB1')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Necro/SoulSnatch/necroSsk5.png" onclick="buildsCostPopup('PNSSB1')"></div>
               <div class="treeItem gridBuild builds" id="PNSSB1"><img src="./Icons/Necro/SoulSnatch/necroS5.jpg" onclick="linkBuilds('PNSSB1')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div>
-            <div class="infoFeed bgNecro normal"><img class="roleIcon" src="./Icons/RoleIcons/Necro.png">
+            <div class="buildsFeed necro bgNecro normal"><img class="roleIcon" src="./Icons/RoleIcons/Necro.png">
               <div class="gridName"><b>Soul Snatch Necro</b><br>Tangled Soul<br></div>
-              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Necro/SoulSnatch/necroS8.jpg" onclick="buildsPopup('PNSSB2')"></div>
+              <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Necro/SoulSnatch/necroS8.jpg" onclick="buildsCostPopup('PNSSB2')"></div>
               <div class="treeItem gridBuild builds" id="PNSSB2"><img src="./Icons/Necro/SoulSnatch/necroS21.jpg" onclick="linkBuilds('PNSSB2')"></div>
               <div class="role"><img src="./Icons/dps.png"><small><b>&nbsp;&nbsp;Ranged DPS</b></small></div>
             </div>
@@ -306,4 +314,5 @@
     slider.addEventListener('mouseup', stopDragging, false);
     slider.addEventListener('mouseleave', stopDragging, false);
     </script>
+    <script src="filters.js"></script>
   </html>
