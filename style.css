@@ -46,7 +46,7 @@ body {
 #Talents, #Stone, #Ults {
     display: block;
 }
-#treeSelect {
+#treeSelect, #noBuilds {
     display: none;
 }
 .showTrees {
@@ -465,6 +465,10 @@ body {
     top: -0.7rem;
     right: 0.2rem;
 }
+.starBuilds {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+}
 .triangle {
     font-size: 2rem;
     top: 0rem;
@@ -489,12 +493,15 @@ body {
     height: 4.5rem;
 }
 .rectLong {
-    height: 10rem;
+    height: 10.5rem;
+}
+.rectBuildsTxt {
+    height: 12rem;
 }
 .rectFilter {
     height: 15.5rem;
 }
-.rect, .rectSmall, .rectLong, .rectFilter {
+.rect, .rectSmall, .rectLong, .rectFilter, .rectBuildsTxt {
     width: 1.5rem;
     background-color: var(--midBrown);
     border-radius: 0.5rem;
@@ -517,7 +524,7 @@ body {
     color: var(--midBrown);
 }
 .filterBar {
-    grid-template-rows: 4rem 15.5rem 7rem 10rem auto;
+    grid-template-rows: 15.5rem 10.5rem 12rem auto;
 }
 .filterBar img {
     width: 1.25rem;
