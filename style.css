@@ -88,7 +88,20 @@ body {
     padding-right: 1rem;
 }
 .infoFeed {
+    display: grid;
     grid-template-columns: 1fr;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+.filterList {
+    background-color: var(--darkBeige);
+    color: var(--midBrown);
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
 }
 .gridName { 
     padding-top: 0.9rem;
@@ -493,16 +506,18 @@ body {
     height: 4.5rem;
 }
 .rectLong {
-    height: 10.5rem;
-}
-.rectBuildsTxt {
-    height: 12rem;
+    height: 13rem;
 }
 .rectFilter {
-    height: 15.5rem;
+    height: 19rem;
 }
-.rect, .rectSmall, .rectLong, .rectFilter, .rectBuildsTxt {
+.rect, .rectSmall {
     width: 1.5rem;
+    background-color: var(--midBrown);
+    border-radius: 0.5rem;
+}
+.rectFilter, .rectLong {
+    width: 2rem;
     background-color: var(--midBrown);
     border-radius: 0.5rem;
 }
@@ -524,12 +539,14 @@ body {
     color: var(--midBrown);
 }
 .filterBar {
-    grid-template-rows: 15.5rem 10.5rem 12rem auto;
+    grid-template-rows: 19rem 13rem auto;
+    padding-top: 0rem;
+    padding-left: 0.25rem;
 }
 .filterBar img {
-    width: 1.25rem;
-    padding-left: 0.15rem;
-    padding-top: 0.15rem;
+    width: 1.6rem;
+    padding-left: 0.2rem;
+    padding-top: 0.2rem;
 }
 .btn {
     border: none;
@@ -541,14 +558,9 @@ body {
 }
 .filterBarItem .btn {
     filter: brightness(0) saturate(100%) invert(99%) sepia(12%) saturate(2491%) hue-rotate(304deg) brightness(98%) contrast(92%);
-}
-  
-.btn:hover {
-    filter: brightness(0) saturate(100%) invert(71%) sepia(7%) saturate(2335%) hue-rotate(121deg) brightness(98%) contrast(95%);
-}
-  
+} 
 .btn.active {
-    filter: brightness(0) saturate(100%) invert(67%) sepia(24%) saturate(4963%) hue-rotate(124deg) brightness(95%) contrast(104%);
+    filter: brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(326%) hue-rotate(353deg) brightness(94%) contrast(85%);
 }
 .show {
     display: grid;

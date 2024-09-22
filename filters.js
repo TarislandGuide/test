@@ -25,7 +25,7 @@
     filterContents.forEach(content => content.classList.add('show'));
     resetButtons('class')
     resetButtons('role')
-    document.getElementById("filterList").textContent = '« filter these builds';
+    document.getElementById("filterList").textContent = 'All Builds';
   }
 
   function resetButtons(name) {
@@ -48,8 +48,8 @@
 
   function filterText () {
     let selectedFilters = [].slice.call(document.querySelectorAll('[filter].active')).map(filter => filter.getAttribute('filter'));
-    if (selectedFilters.length === 0) { document.getElementById("filterList").textContent = '« filter these builds';
-    } else { document.getElementById("filterList").textContent = selectedFilters.join(' ') + ' builds';
+    if (selectedFilters.length === 0) { document.getElementById("filterList").textContent = 'All Builds';
+    } else { document.getElementById("filterList").textContent = selectedFilters.join(' ') + ' Builds';
     }
     resetFilterContent();
   }
