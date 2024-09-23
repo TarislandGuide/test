@@ -640,7 +640,7 @@ body {
         width: 20rem;
     }
     .treeItem img, .popImg {
-        max-width: 4.5rem;
+        width: 4.5rem;
     }
     .treeItem img.circle {
         width: 3.3rem;
@@ -756,7 +756,7 @@ body {
         max-width: 4.5rem;
     }
     .treeItem img, .popImg {
-        max-width: 4rem;
+        width: 4rem;
     }
     .blank {
         height: 3.5rem;
