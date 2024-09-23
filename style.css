@@ -196,7 +196,7 @@ body {
 .feed {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 7rem 7rem 7rem 7rem auto;
+    grid-template-rows: 7rem 7rem 7rem 7rem 7rem 7rem 7rem;
     height: 85vh;
     overflow-y: scroll;
     grid-gap: 1.5rem;
@@ -742,7 +742,7 @@ body {
     }
     .feed {
         grid-template-columns: 1fr;
-        grid-template-rows: 6.5rem 6.5rem 6.5rem 6.5rem auto auto;
+        grid-template-rows: 6.5rem 6.5rem 6.5rem 6.5rem 6.5rem 6.5rem;
     }
 }
 @media screen and (max-width: 375px) {
