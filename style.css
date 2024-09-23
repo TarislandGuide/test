@@ -87,6 +87,7 @@ body {
     grid-column-gap: 0.5rem;
     background-color: var(--darkBeige);
     color: var(--midBrown);
+    max-height: 7rem;
     border-radius: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -741,7 +742,7 @@ body {
     }
     .feed {
         grid-template-columns: 1fr;
-        grid-template-rows: 6.5rem 6.5rem 6.5rem 6.5rem auto;
+        grid-template-rows: 6.5rem 6.5rem 6.5rem 6.5rem auto auto;
     }
 }
 @media screen and (max-width: 375px) {
@@ -798,6 +799,7 @@ body {
     }
     .feed {
         grid-template-rows: 6rem 6rem 6rem 6rem auto;
+        height: 75vh
     }
     .linkB {
         left: 1.45rem;
