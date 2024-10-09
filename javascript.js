@@ -1,12 +1,20 @@
-function closeOverlay() {
-    document.getElementById("skillOverlay").style.display = "none";
-}
-
 let skillCode = ['WAWS',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 let stoneCode = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-const u = {"y":"<span class='yellow'>","g":"<span class='green'>","b":"<span class='blue'>","s":"</span>","rn":"&nbsp;<span class = 'red notes'><b>&#9834;</b></span>&nbsp;","bn":"&nbsp;<span class = 'blue notes'><b>&#9835;</b></span>&nbsp;","pn":"&nbsp;<span class = 'purple notes'><b>&#9835;</b></span>&nbsp;"}
+const u = {"y":"<span class='yellow'>","g":"<span class='green'>","b":"<span class='blue'>","o":"<span class='orange'>","s":"</span>","rn":"&nbsp;<span class = 'red notes'><b>&#9834;</b></span>&nbsp;","bn":"&nbsp;<span class = 'blue notes'><b>&#9835;</b></span>&nbsp;","pn":"&nbsp;<span class = 'purple notes'><b>&#9835;</b></span>&nbsp;"}
 var params = new URLSearchParams(location.search);
 
+function closeOverlay(value) {
+    document.getElementById(value).style.display = "none";
+}
+
+function closeBuildsOverlay(value) {
+    document.getElementById(value).style.display = "none";
+    document.getElementById("summary").remove();
+    document.getElementById("macro").remove();
+    document.getElementById("chat").remove();
+    document.getElementById("buildsText").remove();
+}
+    
 function test(value) { 
     function search(v){
         return value === v.id;
@@ -49,12 +57,20 @@ function decode(x) {
     reduce((a, c) => a.concat(c))
 }
 
-function selectTree(active, inactive1, ults) {
-    document.getElementById(active).style.display = "block";
-    document.getElementById(inactive1).style.display = "none";
+function selectTree(active, inactive1, inactive2) {
     document.getElementById('icon' + active).className = "bground";
     document.getElementById('icon' + inactive1).className = "blah";
-    document.getElementById('Ults').style.display = ults;
+    document.getElementById('icon' + inactive2).className = "blah";
+    document.querySelectorAll('.' + active).forEach(item => item.style.display = "grid");
+    document.querySelectorAll('.' + inactive1).forEach(item => item.style.display = "none");
+    document.querySelectorAll('.' + inactive2).forEach(item => item.style.display = "none");
+    if (active === 'Talents') {
+        document.getElementById('Trees').style.gridTemplateAreas = '"talents" "builds"';
+    } else if (active === 'Stone') {
+        document.getElementById('Trees').style.gridTemplateAreas = '"stone"';
+    } else if (active === 'Skills') {
+        document.getElementById('Trees').style.gridTemplateAreas = '"skills" "ults" "pvp"';
+    }
     if (active === 'Stone' && params.has('stone') === true) {
         setStone([1, ...decode(params.get('stone'))].join(''), skillCode[0]);       
     } else {
@@ -168,9 +184,68 @@ function ultPopup(value) {
     + skill.range + " m</span><br>Cooldown: <span class = 'orange'>" + skill.cooldown + " sec</span><br><br>" + eval('`'+ skill.description +'`');
 }
 
+function buildsCreatePopup(value) {
+    var tab1 = document.createElement("div");
+    tab1.classList.add("tab1");
+    tab1.id = "summary";
+    tab1.setAttribute("onclick", "buildsInfo('" + value + "')");
+
+    var tab2 = document.createElement("div");
+    tab2.classList.add("tab2");
+    tab2.id = "macro";
+    tab2.setAttribute("onclick", "buildsMacro('" + value + "')");
+
+    var tab3 = document.createElement("div");
+    tab3.classList.add("tab3");
+    tab3.id = "chat";
+    tab3.setAttribute("onclick", "buildsChat('" + value + "')");
+
+    var popupMain = document.createElement("div");
+    popupMain.classList.add("popupMain");
+    popupMain.id = "buildsText";
+
+    document.getElementById("buildsOverlay").style.display = "block";
+    document.getElementById("buildsPopup").appendChild(tab1);
+    document.getElementById("buildsPopup").appendChild(tab2);
+    document.getElementById("buildsPopup").appendChild(tab3);
+    document.getElementById("buildsPopup").appendChild(popupMain);
+
+    document.getElementById("summary").innerHTML = "<img class='treeItem' src='./Icons/summary.png'>";
+    document.getElementById("macro").innerHTML = "<img class='treeItem' src='./Icons/macro.png'>";
+    document.getElementById("chat").innerHTML = "<img class='treeItem' src='./Icons/chat.png'>";
+    document.getElementById("buildsText").innerHTML = "<p>Error<br>try force refreshing the page (ctrl + shift + R) or clearing the cache<br>if error persists please report the bug on the <a href='https://discord.com/channels/1070905779370074153/1259420808116174864'>discord</a> thread</p>";
+    buildsInfo(value);
+}
+
 function buildsInfo(value) {
-    document.getElementById("skillOverlay").style.display = "block";
-    document.getElementById("skillPopup").innerHTML = "build summary coming soon to soonish :)";
+    document.getElementById('macro').classList.add('inactive');
+    document.getElementById('chat').classList.add('inactive');
+    document.getElementById('summary').classList.remove('inactive');
+    function search(v){
+        return value === v.id;
+    }
+    let skill = builds.find(search);
+    const info = skill.variable.split(",");
+    document.getElementById("buildsText").innerHTML = "<img class='popImgBuild' src='"+ skill.summaryIcon + "'><img class='popImgBuild circle' src='"+ skill.icon + "'><h2> " + skill.name + "<br><small>Build Overview</small></h2><br>" + eval('`'+ skill.summary +'`');
+}
+
+function buildsMacro(value) {
+    document.getElementById('summary').classList.add('inactive');
+    document.getElementById('chat').classList.add('inactive');
+    document.getElementById('macro').classList.remove('inactive');
+    function search(v){
+        return value === v.id;
+    }
+    let skill = builds.find(search);
+    const info = skill.variable.split(",");
+    document.getElementById("buildsText").innerHTML = eval('`'+ skill.macro +'`');
+}
+
+function buildsChat(value) {
+    document.getElementById('summary').classList.add('inactive');
+    document.getElementById('macro').classList.add('inactive');
+    document.getElementById('chat').classList.remove('inactive');
+    document.getElementById("buildsText").innerHTML = "chat box hopefully added here soonish? maybe?";
 }
 
 function selectClass(active) {
@@ -196,6 +271,7 @@ function plusSkill(id) {
     }
     document.getElementById(id).innerHTML = skillCode[pos];
     updateParams(skillCode.join(''), 'skill');
+    document.getElementById('talentNum').innerHTML = skillTotal();
 }
 
 function plusStone(id, shape) {
@@ -211,6 +287,7 @@ function plusStone(id, shape) {
     document.getElementById(id).innerHTML = stoneCode[pos];
     let [a, ...rest] = stoneCode
     updateParams(encode(rest), 'stone');
+    document.getElementById('stoneNum').innerHTML = stoneTotal();
 }
 
 function minusSkill(id) {
@@ -224,6 +301,7 @@ function minusSkill(id) {
         document.getElementById(id.substr(2)).className = "gray";
     }
     updateParams(skillCode.join(''), 'skill');
+    document.getElementById('talentNum').innerHTML = skillTotal();
     }
 
 function minusStone(id, shape) {
@@ -239,6 +317,7 @@ function minusStone(id, shape) {
     }
     let [a, ...rest] = stoneCode
     updateParams(encode(rest), 'stone');
+    document.getElementById('stoneNum').innerHTML = stoneTotal();
     }
 
 function reset(code) {
@@ -276,6 +355,7 @@ function setTalents(code) {
         }
         else document.getElementById(id.substr(2)).className = "gray";
     }
+    document.getElementById('talentNum').innerHTML = skillTotal();
 }
 
 function setStone(code, classCode) {
@@ -292,6 +372,7 @@ function setStone(code, classCode) {
         else document.getElementById(id.substr(2)).classList.add('gray');
         document.getElementById(id.substr(2)).classList.remove('colour');
     }
+    document.getElementById('stoneNum').innerHTML = stoneTotal();
 }
 
 function skillTotal() {

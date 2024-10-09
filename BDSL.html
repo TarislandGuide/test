@@ -57,45 +57,20 @@
                 <div class="sideBar">
                     <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>Tree</b></span></div>
                 </div>
-                <div class="tree">
+                <div class="selectTree">
                     <div class="blank"></div>
-                    <div class="treeIcon"><img id ="iconTalents" class="bground" alt="Talent Tree" src="./Icons/skills.png" onclick="selectTree('Talents', 'Stone', 'block')"><span class="below"><b><small>Skills</small></b></span></div>
-                    <div class="treeIcon"><img id ="iconStone" class="blah" alt="Inscribed Stone" src="./Icons/stone.png" onclick="selectTree('Stone', 'Talents', 'none')"><span class="below"><b><small>Stone</small></b></span></div>
-                    <div class="treeIcon"><img id ="iconWeapon" class="blah" alt="God Weapon" src="./Icons/sword.png" onclick="selectTree(blah)"><span class="below"><b><small>S1&nbsp;&nbsp;</small></b></span></div>
+                    <div class="treeIcon"><img id ="iconTalents" class="bground" alt="Talent Tree" src="./Icons/skills.png" onclick="selectTree('Talents', 'Stone', 'Skills')"><span class="below"><b><small>Skills</small></b></span></div>
+                    <div class="treeIcon"><img id ="iconStone" class="blah" alt="Inscribed Stone" src="./Icons/stone.png" onclick="selectTree('Stone', 'Talents', 'Skills')"><span class="below"><b><small>Stone</small></b></span></div>
+                    <div class="treeIcon"><img id ="iconSkills" class="blah" alt="God Weapon" src="./Icons/sword.png" onclick="selectTree('Skills', 'Stone', 'Talents')"><span class="below"><b><small>S1&nbsp;&nbsp;</small></b></span></div>
                     <div class="blank"></div>
                 </div>
             </div>
             </div>
 
-            <div id="Trees" class="showTrees">
-                <div class="talentTree" id="Talents">   <!--Bard-->
-            <div id="BDSL" class="specList">  <!--Bard Solo-->
-            <div class="ultimates">
-            <div class="sideBar">
-                <div class="treeItem"><span class="rect"></span><span class="rotate"><b>Core Skills</b></span></div>
-            </div>
-            <div class="Skills">
-            <div class="skillItem" id="BDSLS01"><img src="./Icons/Bard/Solo/bardSsk1.png" onclick="skillPopup('BDSLS01')"></div>
-            <div class="skillItem" id="BDSLS02"><img src="./Icons/Bard/Solo/bardSsk2.png" onclick="skillPopup('BDSLS02')"></div>
-            <div class="skillItem" id="BDSLS03"><img src="./Icons/Bard/Solo/bardSsk10.png" onclick="skillPopup('BDSLS03')"></div>
-            <div class="skillItem" id="BDSLS04"><img src="./Icons/Bard/Solo/bardS24.jpg" onclick="skillPopup('BDSLS04')"></div>
-            <div class="skillItem" id="BDSLS05"><img src="./Icons/Bard/Solo/bardSsk4.png" onclick="skillPopup('BDSLS05')"></div>
-            <div class="skillItem" id="BDSLS06"><img src="./Icons/Bard/Solo/bardSsk5.png" onclick="skillPopup('BDSLS06')"></div>
-            <div class="skillItem" id="BDSLS07"><img src="./Icons/Bard/Solo/bardSsk6.png" onclick="skillPopup('BDSLS07')"></div>
-            <div class="treeItem" id="BDSLA01"><img src="./Icons/Bard/Solo/bardSsk11.png" onclick="passivePopup('BDSLA01')"></div>
-            </div>
-            <div class="sideBar">
-                <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>Chords</b></span></div>
-            </div>
-            <div class="Skills"> <!--chords-->
-                <div class="skillItem" id="BDSLS08"><img src="./Icons/Bard/Solo/bardSsk8.png" onclick="skillPopup('BDSLS08')"></div>
-                <div class="skillItem" id="BDSLS09"><img src="./Icons/Bard/Solo/bardS5.jpg" onclick="skillPopup('BDSLS09')"></div>
-                <div class="skillItem" id="BDSLS10"><img src="./Icons/Bard/Solo/bardS12.jpg" onclick="skillPopup('BDSLS10')"></div>
-                <div class="skillItem" id="BDSLS11"><img src="./Icons/Bard/Solo/bardS16.jpg" onclick="skillPopup('BDSLS11')"></div>
-                <div class="skillItem" id="BDSLS12"><img src="./Icons/Bard/Solo/bardS11.jpg" onclick="skillPopup('BDSLS12')"></div>
-                </div>
-            </div>
-            <div class="skillTree">
+            <div id="Trees" class="mainLayoutGridTrees">
+                
+            <div class="gridTalents Talents">   <!--Bard Solo-->
+            <div class="talentsTree">
             <div class="sideBar">
                 <div class="treeItem"><span class="dot"></span><p><b>8</b></p></div>
                 <div class="treeItem"><span class="dot"></span><p><b>12</b></p></div>
@@ -107,8 +82,8 @@
                 <div class="treeItem"><span class="dot"></span><p><b>36</b></p></div>
                 <div class="treeItem"><span class="dot"></span><p><b>40</b></p></div>
             </div>
-            <div class="talents">
-                <div class="treeItem blank"></div>
+            <div class="talentsLayout">
+                <div class="treeItem"><img src="./Icons/32.png"><span id="talentNum">0</span></div>
                 <div class="treeItem"><img id="SLT01" class="gray" src="./Icons/Bard/Solo/bardS1.jpg" onclick="talentPopup('BDSLT01')"><span class="skillCalc"><span id="BDSLT01" class="zero">0</span>/3</span></div>
                 <div class="treeItem"><img id="SLT02" class="gray" src="./Icons/Bard/Solo/bardS2.jpg" onclick="talentPopup('BDSLT02')"><span class="skillCalc"><span id="BDSLT02" class="zero">0</span>/3</span></div>
 
@@ -156,22 +131,19 @@
                 <div class="treeItem" id="BDSLP05"><img src="./Icons/Bard/Solo/bardS26.jpg" onclick="passivePopup('BDSLP05')"></div>
             </div>
             </div>
-            <div class="ultimates">  <!--Actions-->
+            <div class="gridActions">  <!--Actions-->
                 <div class="sideBar">
                     <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>Actions</b></span></div>
                 </div>
                 <div class="buildsGrid">   
-                    <div class="treeItem"><img src="./Icons/Bard/Solo/ult2.jpg" onclick="accordian('Ults')"><span class="skillCalc right">Ults</span></div>
-                    <div class="treeItem"><img src="./Icons/Barbarian/Thunder/barbT5.jpg" onclick="accordian('PvP')"><span class="skillCalc right">PvP</span></div>
+                    <div class="treeItem"></div>
+                    <div class="treeItem"></div>
                     <div class="treeItem"><img src="./Icons/copy.png" onclick="copy(window.location)"><span id="copy1" class="skillCalc right">Copy</span></div>
                     <div class="treeItem"><img src="./Icons/reset.png" onclick="reset('BDSL000000000000000000000')"><span class="skillCalc right">Reset</span></div>
                 </div>
             </div>
-            </div>
-                </div>
-
-                <div id="Stone">
-            <div class="stoneTree">
+        </div>
+            <div class="gridStone Stone">
                 <div class="stoneItem"><img id="SLI58" class="octagon gray" loading="lazy" src="./Icons/Stone/spec.png" onclick="stonePopup('BDSLI58')"><span class="stoneCalc"><span id="BDSLI58" class="zero">0</span>/3</span><span class="linkB"></span><span class="linkBR"></span><span class="oct-border"></span></div>
                 <div class="stoneItem stoneBlank"></div>
                 <div class="stoneItem stoneBlank"></div>
@@ -284,7 +256,7 @@
                 <div class="stoneItem stoneBlank"></div>
                 <div class="stoneItem stoneBlank"></div>
         
-                <div class="stoneItem stoneBlank"></div>
+                <div class="stoneItem"><img class="square" src="./Icons/100.png"><span id="stoneNum">1</span></div>
                 <div class="stoneItem"><img class="square" src="./Icons/Stone/Skill7.png" onclick="skillPopup('BDSLS13')"><span class="resetText">Skill 7</span></div>
                 <div class="stoneItem stoneBlank"></div>
                 <div class="stoneItem"><img id="SLC01" class="circle" loading="lazy" src="./Icons/Stone/start.png" onclick="passivePopup('BDSLC01')"><span class="stoneCalc"><span id="BDSLC01" class="zero">1</span>/1</span></div>
@@ -292,15 +264,55 @@
                 <div class="stoneItem"><img class="square" src="./Icons/copy.png" onclick="copy(window.location)"><span id="copy2" class="resetText">Copy</span></div>
                 <div class="stoneItem"><img class="square" src="./Icons/reset.png" onclick="resetStone('10000000000000000000000000000000000000000000000000000000000', 'BDSL')"><span class="resetText">Reset</span></div>
             </div>
+            <div class="builds areaBuilds Talents"> <!-- builds-->
+                <div class="sideBar bar">
+                    <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>Builds</b></span></div>
+                </div>
+                <div class="feedSmall">
+                    <div class="buildsShow Bard Ranged all bgSeaGreen Popular"><img class="roleIcon" draggable="false" src="./Icons/RoleIcons/Bard.png" alt="bard">
+                        <div class="gridName"><b>Elegant Melody</b><br>Raid Ranged Dps</div>
+                        <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Solo/bardSsk10.png" onclick="buildsPopup('BDSLB1')" alt="elegant melody"></div>
+                        <div class="treeItem gridBuild builds" id="BDSLB1"><img src="./Icons/Bard/Solo/bardS13.jpg" onclick="raidBuilds('BDSLB1')" alt="bard dps build 1"><span class="star">&#9733;</span></div>
+                        <div class="role unpop"><img src="./Icons/info.png" onclick="buildsCreatePopup('BDSLB1')" alt="info"><small><b>&nbsp;&nbsp;Info</b></small></div>
+                      </div> 
+                      <div class="buildsShow Bard Ranged all bgSeaGreen unpop"><img class="roleIcon" draggable="false" src="./Icons/RoleIcons/Bard.png" alt="bard">
+                        <div class="gridName"><b>Powerful Melody</b><br>Raid Ranged Dps</div>
+                        <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Solo/bardSsk2.png" onclick="buildsPopup('BDSLB2')" alt="powerful melody"></div>
+                        <div class="treeItem gridBuild builds" id="BDSLB2"><img src="./Icons/Bard/Solo/bardS12.jpg" onclick="raidBuilds('BDSLB2')" alt="bard dps build 2"><span class="triangle">&#9660;</span></div>
+                        <div class="role unpop"><img src="./Icons/info.png" onclick="buildsCreatePopup('BDSLB2')" alt="info"><small><b>&nbsp;&nbsp;Info</b></small></div>
+                      </div> 
                 </div>
             </div>
-
-            <div class="ultsWrapper">
-            <div id="Ults" class="ultimates">
-                <div class="sideBar">
+            <div class="gridSkills Skills">
+                <div class="sideBar bar">
+                    <div class="treeItem"><span class="rect"></span><span class="rotate"><b>Core Skills</b></span></div>
+                </div>
+                <div class="content">
+                <div class="skillItem" id="BDSLS01"><img src="./Icons/Bard/Solo/bardSsk1.png" onclick="skillPopup('BDSLS01')"></div>
+                <div class="skillItem" id="BDSLS02"><img src="./Icons/Bard/Solo/bardSsk2.png" onclick="skillPopup('BDSLS02')"></div>
+                <div class="skillItem" id="BDSLS03"><img src="./Icons/Bard/Solo/bardSsk10.png" onclick="skillPopup('BDSLS03')"></div>
+                <div class="skillItem" id="BDSLS04"><img src="./Icons/Bard/Solo/bardS24.jpg" onclick="skillPopup('BDSLS04')"></div>
+                <div class="skillItem" id="BDSLS05"><img src="./Icons/Bard/Solo/bardSsk4.png" onclick="skillPopup('BDSLS05')"></div>
+                <div class="skillItem" id="BDSLS06"><img src="./Icons/Bard/Solo/bardSsk5.png" onclick="skillPopup('BDSLS06')"></div>
+                <div class="skillItem" id="BDSLS07"><img src="./Icons/Bard/Solo/bardSsk6.png" onclick="skillPopup('BDSLS07')"></div>
+                <div class="treeItem" id="BDSLA01"><img src="./Icons/Bard/Solo/bardSsk11.png" onclick="passivePopup('BDSLA01')"></div>
+                </div>
+                <div class="sideBar bar">
+                    <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>Chords</b></span></div>
+                </div>
+                <div class="content"> <!--chords-->
+                    <div class="skillItem" id="BDSLS08"><img src="./Icons/Bard/Solo/bardSsk8.png" onclick="skillPopup('BDSLS08')"></div>
+                    <div class="skillItem" id="BDSLS09"><img src="./Icons/Bard/Solo/bardS5.jpg" onclick="skillPopup('BDSLS09')"></div>
+                    <div class="skillItem" id="BDSLS10"><img src="./Icons/Bard/Solo/bardS12.jpg" onclick="skillPopup('BDSLS10')"></div>
+                    <div class="skillItem" id="BDSLS11"><img src="./Icons/Bard/Solo/bardS16.jpg" onclick="skillPopup('BDSLS11')"></div>
+                    <div class="skillItem" id="BDSLS12"><img src="./Icons/Bard/Solo/bardS11.jpg" onclick="skillPopup('BDSLS12')"></div>
+                    </div>
+                </div>
+            <div class="gridUlts Skills">
+                <div class="sideBar bar">
                     <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>Ults</b></span></div>
                 </div>
-                <div class="ultimateSkills">
+                <div class="content">
                 <div class="treeItem" id="BDSLU01"><img src="./Icons/Bard/Solo/ult1.jpg" onclick="ultPopup('BDSLU01')"></div>
                 <div class="treeItem" id="BDSLU02"><img src="./Icons/Bard/Solo/ult2.jpg" onclick="ultPopup('BDSLU02')"></div>
                 <div class="treeItem" id="BDSLU03"><img src="./Icons/Bard/Solo/ult3.jpg" onclick="ultPopup('BDSLU03')"></div>
@@ -311,11 +323,11 @@
                 <div class="treeItem" id="BDSLU08"><img src="./Icons/Bard/Solo/ult8.jpg" onclick="ultPopup('BDSLU08')"></div>
                 </div>
                 </div>
-            <div id="PvP" class="ultimates">  <!--PvP-->
-                    <div class="sideBar">
+            <div class="gridPvP Skills">  <!--PvP-->
+                    <div class="sideBar bar">
                         <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>PvP</b></span></div>
                     </div>
-                    <div class="ultimateSkills">
+                    <div class="content">
                     <div class="treeItem" id="BDSLU09"><img src="./Icons/Barbarian/Thunder/barbT1.jpg" onclick="passivePopup('BDSLU09')"></div>
                     <div class="treeItem" id="BDSLU10"><img src="./Icons/Barbarian/Thunder/barbT2.jpg" onclick="passivePopup('BDSLU10')"></div>
                     <div class="treeItem" id="BDSLU11"><img src="./Icons/Barbarian/Thunder/barbT3.jpg" onclick="passivePopup('BDSLU11')"></div>
@@ -326,32 +338,17 @@
                     <div class="treeItem" id="BDSLU16"><img src="./Icons/Barbarian/Thunder/barbT8.jpg" onclick="passivePopup('BDSLU16')"></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="spec"> <!-- builds-->
-                <div class="sideBar">
-                    <div class="treeItem"><span class="rectSmall"></span><span class="rotate"><b>Builds</b></span></div>
-                </div>
-                <div class="feedSmall">
-                    <div class="buildsShow Bard Ranged all bgSeaGreen Popular"><img class="roleIcon" draggable="false" src="./Icons/RoleIcons/Bard.png" alt="bard">
-                        <div class="gridName"><b>Elegant Melody</b><br>Raid Ranged Dps</div>
-                        <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Solo/bardSsk10.png" onclick="buildsPopup('BDSLB1')" alt="elegant melody"></div>
-                        <div class="treeItem gridBuild builds" id="BDSLB1"><img src="./Icons/Bard/Solo/bardS13.jpg" onclick="raidBuilds('BDSLB1')" alt="bard dps build 1"><span class="star">&#9733;</span></div>
-                        <div class="role unpop"><img src="./Icons/info.png" onclick="buildsInfo()" alt="info"><small><b>&nbsp;&nbsp;Info</b></small></div>
-                      </div> 
-                      <div class="buildsShow Bard Ranged all bgSeaGreen unpop"><img class="roleIcon" draggable="false" src="./Icons/RoleIcons/Bard.png" alt="bard">
-                        <div class="gridName"><b>Powerful Melody</b><br>Raid Ranged Dps</div>
-                        <div class="treeItem gridSkill builds"><img class="circle" src="./Icons/Bard/Solo/bardSsk2.png" onclick="buildsPopup('BDSLB2')" alt="powerful melody"></div>
-                        <div class="treeItem gridBuild builds" id="BDSLB2"><img src="./Icons/Bard/Solo/bardS12.jpg" onclick="raidBuilds('BDSLB2')" alt="bard dps build 2"><span class="triangle">&#9660;</span></div>
-                        <div class="role unpop"><img src="./Icons/info.png" onclick="buildsInfo()" alt="info"><small><b>&nbsp;&nbsp;Info</b></small></div>
-                      </div> 
-                </div>
-            </div>
     </div>
     <div id="skillOverlay">
-        <div class="overlay" onclick="closeOverlay()"></div>
+        <div class="overlay" onclick="closeOverlay('skillOverlay')"></div>
         <div class="popup" id="skillPopup">
             <p>Error<br>try force refreshing the page (ctrl + shift + R) or clearing the cache<br>if error persists please report the bug on the <a href="https://discord.com/channels/1070905779370074153/1259420808116174864">discord</a> thread</p>
+        </div>
+    </div>
+    <div id="buildsOverlay">
+        <div class="overlay" onclick="closeBuildsOverlay('buildsOverlay')"></div>
+        <div class="popupGrid" id="buildsPopup">
         </div>
     </div>
 </body>
