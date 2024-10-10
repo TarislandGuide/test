@@ -53,7 +53,6 @@ body {
 .mainLayoutGridTrees {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
-    grid-template-rows: auto auto 14rem 14rem auto;
     grid-template-areas:
     'talents stone builds'
     'talents stone skills'
@@ -229,7 +228,9 @@ body {
 }
 .content{
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 0.5rem;
+    grid-template-rows: 5rem 5rem;
+    column-gap: 0.5rem;
+    row-gap: 1rem;
     padding-top: 1rem;
 }
 .content {
@@ -315,7 +316,7 @@ body {
 .skillCalc {
     border-radius: 0.5rem 0 0.5rem 0;
     bottom: 0;
-    right: 0.25rem;
+    right: 0rem;
 }
 .buildsGrid .skillCalc {
     right: 0.4rem;
@@ -330,7 +331,7 @@ body {
     border-radius: 0.5rem 0 0.5rem 0;
     font-size: small;
     bottom: 0rem;
-    right: 0.2rem;
+    right: 0rem;
 }
 .linkB {
     position: absolute;
@@ -681,6 +682,9 @@ body {
     text-align: right;
     justify-content: right;
 }
+.skillCalc.right {
+    right: 0.15rem;
+}
 .left {
     justify-content: left;
 }
@@ -772,7 +776,7 @@ body {
         margin-top: 2rem;
     }
     .talentsTree {
-        height: 47.5rem;
+        height: 48.5rem;
     }
     .talentsLayout {
         height: 46rem;
@@ -824,7 +828,7 @@ body {
         width: 2rem;
     }
     .skillItem img, .treeIcon img {
-        width: 4.3rem;
+        width: 4.5rem;
     }
     .classItem {
         max-width: 5rem;
@@ -838,6 +842,13 @@ body {
     .talentsLayout, .corePassives, .sideBar {
         grid-gap: 0.75rem;
     }
+    .talentsLayout, .corePassives {
+        margin-top: 1rem;
+    }
+    .sideBar.barNudge {
+        padding-top: 2.3rem;
+        padding-bottom: 2.1rem;
+    }
     .roleIcon {
         top: -1.7rem;
     }
@@ -848,9 +859,10 @@ body {
         height: 0.5rem;
     }
     .content {
-        padding-top: 1.5rem;
-        grid-gap:0rem;
-        grid-row-gap: 0.5rem;
+        grid-template-rows: 4.5rem 4.5rem;
+        padding-top: 1rem;
+        column-gap: 0.5rem;
+        row-gap: 0.75rem;
     }
     .skillCalc {
         bottom: 0.05rem;
@@ -920,8 +932,8 @@ body {
     }
     .specSelect {
         grid-template-columns: 0 1fr 1fr 1fr 1fr 0;
-        padding-bottom: 0rem;
-        padding-top: 0rem;
+        padding-bottom: 0.5rem;
+        padding-top: 1.3rem;
     }
     .feed, .feedSmall {
         grid-template-columns: 1fr;
@@ -938,8 +950,11 @@ body {
     .talentsTree {
         height: 41rem;
     }
+    .content {
+        grid-template-rows: 4rem 4rem;
+    }
     .skillItem img, .treeIcon img {
-        max-width: 3.8rem;
+        max-width: 4rem;
     }
     .classItem img {
         max-width: 4.5rem;
@@ -952,8 +967,12 @@ body {
     }
     .skillCalc {
         bottom: 0.1rem;
-        right: 0.4rem;
+        right: 0.3rem;
         line-height: 0.8;
+    }
+    .resetText {
+        bottom: 0.1rem;
+        right: 0.1rem;
     }
     .buildsGrid .skillCalc {
         right: 0.3rem;
