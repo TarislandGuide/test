@@ -371,9 +371,9 @@
         var xDiff = xUp - xDown, yDiff = yUp - yDown;
         if ((Math.abs(xDiff) > Math.abs(yDiff)) && (Math.abs(xDiff) > 0.33 * document.body.clientWidth)) { 
             if (xDiff < 0) 
-            selectTree(left, active, right);
-            else
             selectTree(right, active, left);
+            if (xDiff < 0) 
+            selectTree(left, active, right);
         } 
         xDown = null, yDown = null;
     }
