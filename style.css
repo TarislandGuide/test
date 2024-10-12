@@ -129,6 +129,12 @@ body {
     grid-gap: 0;
     margin-right: 0.5rem;
 }
+.gridSkills.extraRow {
+    grid-template-rows: auto auto;
+    grid-template-areas:
+    'main sidebar'
+    'mainChords barChords';
+}
 .treeIcon.gridSelect {
     display: grid;
     grid-template-columns: 5rem;
@@ -203,6 +209,12 @@ body {
 }
 .gridBuild { 
     grid-area: buildLink; 
+}
+.bar.chords {
+    grid-area: barChords;
+}
+.content.chords {
+    grid-area: mainChords;
 }
 ::-webkit-scrollbar {
     width: 0px;
@@ -790,6 +802,11 @@ body {
         'sidebar main';
         grid-template-columns: 2rem 1fr;
     }
+    .gridSkills.extraRow {
+        grid-template-areas:
+        'sidebar main'
+        'barChords mainChords';
+    }
     .feed {
         grid-template-columns: 1fr 1fr;
     }
@@ -803,7 +820,7 @@ body {
 @media screen and (max-aspect-ratio: 1/1) and (max-width:850px) {
     .wrapper {
         margin: auto;
-        max-width: 70rem;
+        max-width: 95vw;
         position: relative;
         background: var(--beige);
     }
@@ -1032,6 +1049,11 @@ body {
         grid-template-areas:
         'sidebar main';
         grid-template-columns: 2rem 1fr;
+    }
+    .gridSkills.extraRow {
+        grid-template-areas:
+        'sidebar main'
+        'barChords mainChords';
     }
     .stoneItem img {
         width: 3rem;
