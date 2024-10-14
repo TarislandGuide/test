@@ -359,7 +359,7 @@
     window.onpageshow = loadParams; 
     window.onpopstate = () => setTimeout(loadParams, 0);
     document.getElementById("classScroll").scrollLeft = 200;
-            
+    document.addEventListener("contextmenu", (e) => {e.preventDefault()});        
     var xDown = null, yDown = null, xUp = null, yUp = null;
     document.addEventListener('touchstart', touchstart, false);        
     document.addEventListener('touchmove', touchmove, false);
