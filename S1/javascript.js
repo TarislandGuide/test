@@ -489,7 +489,7 @@ function linkBuilds(value) {
         return value === v.id;
     }
     let buildCode = builds.find(search);
-    window.location =  `./${value.slice(0, 4)}.html?skill=${buildCode.Skill}&stone=${buildCode.Stone}`;
+    window.location =  `./S1/${value.slice(0, 4)}.html?skill=${buildCode.Skill}&stone=${buildCode.Stone}`;
 }
 
 function accordian(value) {
