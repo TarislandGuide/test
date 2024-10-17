@@ -46,11 +46,11 @@ function testStone(value) {
 function togglePopups() {
     if (usePopups === true) {
         usePopups = false
-        document.getElementById('onOffTalents').src="./Icons/off.png"
-        document.getElementById('onOffStone').src="./Icons/off.png"
+        document.getElementById('onOffTalents').src="../Icons/off.png"
+        document.getElementById('onOffStone').src="../Icons/off.png"
     } else { usePopups = true
-    document.getElementById('onOffTalents').src="./Icons/on.png"
-    document.getElementById('onOffStone').src="./Icons/on.png"
+    document.getElementById('onOffTalents').src="../Icons/on.png"
+    document.getElementById('onOffStone').src="../Icons/on.png"
 }}
 
 function encode(x) {
@@ -416,6 +416,7 @@ function copy(value) {
     window.navigator.clipboard.writeText(value);
     document.getElementById("copy1").innerHTML = "Copied";
     document.getElementById("copy2").innerHTML = "Copied";
+    alert("Inscribed Stone copy / import build function not working at the moment, maybe tomorrow, sorry")
     setTimeout( function() {
         document.getElementById("copy1").innerHTML = "Copy";
         document.getElementById("copy2").innerHTML = "Copy";
