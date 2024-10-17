@@ -273,14 +273,18 @@ function buildsChat(value) {
 }
 
 function selectClass(active) {
+    console.log(window.location.href)
     if(dragging) {
         dragging = false;
         return;
+    } else if (document.URL.includes("index.html")) {
+    var code = active + '000000000000000000000'
+    location.assign("./S1/" + active + ".html?skill=" + code);
     } else if (active !== 'home') {
     var code = active + '000000000000000000000'
     location.assign("./" + active + ".html?skill=" + code);
     } else if (active === 'home'){
-    location.assign("./index.html");
+    location.assign("../index.html");
 }
 }
 
