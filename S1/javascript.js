@@ -1,6 +1,6 @@
 let skillCode = ['WAWS',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-let stoneCode = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-const u = {"y":"<span class='yellow'>","g":"<span class='green'>","b":"<span class='blue'>","o":"<span class='orange'>","s":"</span>","rn":"&nbsp;<span class = 'red notes'><b>&#9834;</b></span>&nbsp;","bn":"&nbsp;<span class = 'blue notes'><b>&#9835;</b></span>&nbsp;","pn":"&nbsp;<span class = 'purple notes'><b>&#9835;</b></span>&nbsp;"}
+let stoneCode = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+const u = {"y":"<span class='yellow'>","g":"<span class='green'>","b":"<span class='blue'>","o":"<span class='orange'>","w":"<span class='white'>","r":"<span class='red'>","s":"</span>","rn":"&nbsp;<span class = 'red notes'><b>&#9834;</b></span>&nbsp;","bn":"&nbsp;<span class = 'blue notes'><b>&#9835;</b></span>&nbsp;","pn":"&nbsp;<span class = 'purple notes'><b>&#9835;</b></span>&nbsp;"}
 var params = new URLSearchParams(location.search);
 let usePopups = true
 
@@ -56,7 +56,7 @@ function togglePopups() {
 function encode(x) {
     return x.
     reduce((ac, cv, ix, arr) => ix % 2 ? ac.concat([[arr[ix - 1], arr[ix]]]) : ac, []).
-    map( ([a,b]) => 4*a+b ).
+    map( ([a,b]) => 6*a+b ).
     map( v => v.toString(16) ).
     join("")
 }
@@ -65,7 +65,7 @@ function decode(x) {
     return x.
     split("").
     map(v => parseInt(v, 16)).
-    map((v) =>  [Math.floor(v/4), v % 4]).
+    map((v) =>  [Math.floor(v/6), v % 6]).
     reduce((a, c) => a.concat(c))
 }
 
@@ -111,8 +111,8 @@ function talentPopup(value) {
     pos = value.replace(/^[A-Z0]+/, '');
     let skill = talents.find(search);
     const info = skill.variable.split(",");
-    document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><span class='popSkillCalc'> " + skillCode[pos] + "/" + skill.max + " </span><img id='minus' src='./Icons/minus.png' onclick='minusSkill(\"" 
-    + skill.id + "\")'>  </span><img id='plus' src='./Icons/plus.png' onclick='plusSkill(\"" + skill.id + "\")'><h2> " + skill.name + "</h2><br>" + eval('`'+ skill.description +'`');
+    document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><span class='popSkillCalc'> " + skillCode[pos] + "/" + skill.max + " </span><img id='minus' src='../Icons/minus.png' onclick='minusSkill(\"" 
+    + skill.id + "\")'>  </span><img id='plus' src='../Icons/plus.png' onclick='plusSkill(\"" + skill.id + "\")'><h2> " + skill.name + "</h2><br>" + eval('`'+ skill.description +'`');
     if (test(value) === true) {
         document.getElementById('plus').className = "colour";
     }
@@ -131,8 +131,8 @@ function stonePopup(value, shape) {
     pos = value.replace(/^[A-Z0]+/, '');
     let skill = talents.find(search);
     const info = skill.variable.split(",");
-    document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><span class='popSkillCalc'> " + stoneCode[pos] + "/" + skill.max + " </span><img id='minus' src='./Icons/minus.png' onclick='minusStone(\"" 
-    + skill.id + '\",\" ' + shape + "\")'>  </span><img id='plus' src='./Icons/plus.png' onclick='plusStone(\"" + skill.id + '\",\" ' + shape + "\")'><h2> " + skill.name + "</h2><br>" + eval('`'+ skill.description +'`');
+    document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><span class='popSkillCalc'> " + stoneCode[pos] + "/" + skill.max + " </span><img id='minus' src='../Icons/minus.png' onclick='minusStone(\"" 
+    + skill.id + '\",\" ' + shape + "\")'>  </span><img id='plus' src='../Icons/plus.png' onclick='plusStone(\"" + skill.id + '\",\" ' + shape + "\")'><h2> " + skill.name + "</h2><br>" + eval('`'+ skill.description +'`');
     if (testStone(value) === true) {
         document.getElementById('plus').className = "colour";
     }
@@ -233,11 +233,16 @@ function buildsCreatePopup(value) {
     document.getElementById("buildsPopup").appendChild(tab2);
     document.getElementById("buildsPopup").appendChild(tab3);
     document.getElementById("buildsPopup").appendChild(popupMain);
-
+    if (document.URL.includes("index.html")) {
     document.getElementById("summary").innerHTML = "<img class='treeItem' src='./Icons/summary.png'>";
     document.getElementById("macro").innerHTML = "<img class='treeItem' src='./Icons/macro.png'>";
     document.getElementById("chat").innerHTML = "<img class='treeItem' src='./Icons/chat.png'>";
-    document.getElementById("buildsText").innerHTML = "<p>Error<br>try force refreshing the page (ctrl + shift + R) or clearing the cache<br>if error persists please report the bug on the <a href='https://discord.com/channels/1070905779370074153/1259420808116174864'>discord</a> thread</p>";
+    } else {
+    document.getElementById("summary").innerHTML = "<img class='treeItem' src='../Icons/summary.png'>";
+    document.getElementById("macro").innerHTML = "<img class='treeItem' src='../Icons/macro.png'>";
+    document.getElementById("chat").innerHTML = "<img class='treeItem' src='../Icons/chat.png'>";
+    }
+    document.getElementById("buildsText").innerHTML = "<p>Error<br>try force refreshing the page (ctrl + shift + R) or clearing the cache<br>if error persists please report the bug on the <a href='https://discord.com/channels/1070905779370074153/1259420808116174864'>discord</a> thread</p>"; 
     buildsInfo(value);
 }
 
@@ -250,7 +255,11 @@ function buildsInfo(value) {
     }
     let skill = builds.find(search);
     const info = skill.variable.split(",");
+    if (document.URL.includes("index.html")) {
     document.getElementById("buildsText").innerHTML = "<img class='popImgBuild' src='"+ skill.summaryIcon + "'><img class='popImgBuild circle' src='"+ skill.icon + "'><h2> " + eval('`'+ skill.name +'`') + "<br><small>Build Overview</small></h2><br>" + eval('`'+ skill.summary +'`');
+    } else {
+    document.getElementById("buildsText").innerHTML = "<img class='popImgBuild' src='."+ skill.summaryIcon + "'><img class='popImgBuild circle' src='."+ skill.icon + "'><h2> " + eval('`'+ skill.name +'`') + "<br><small>Build Overview</small></h2><br>" + eval('`'+ skill.summary +'`');    
+    }
 }
 
 function buildsMacro(value) {
@@ -273,7 +282,6 @@ function buildsChat(value) {
 }
 
 function selectClass(active) {
-    console.log(window.location.href)
     if(dragging) {
         dragging = false;
         return;

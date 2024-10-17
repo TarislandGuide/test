@@ -364,7 +364,7 @@ body {
 .linkB {
     position: absolute;
     left: 1.75rem;
-    height: 2.5rem;
+    height: 3rem;
     bottom: -2.5rem;
 }
 .linkBR {
@@ -568,6 +568,31 @@ body {
 }
 .brown {
     color: var(--midBrown)
+}
+.white {
+    color: var(--bright);
+}
+.outYellow, .outYellowCircle {
+    outline: 2px solid var(--yellow);
+}
+.outWhite, .outWhiteCircle {
+    outline: 2px solid var(--bright);
+}
+.outRed, .outRedCircle {
+    outline: 2px solid var(--red);
+}
+.outBlue, .outBlueCircle {
+    outline: 2px solid var(--blue);
+}
+.outYellow, .outWhite, .outBlue, .outRed {
+    outline-offset: -2px;
+    box-shadow: 0px 0px 5px var(--brown);
+    border-radius: 0.5rem;
+}
+.outYellowCircle, .outWhiteCircle, .outBlueCircle, .outRedCircle {
+    outline-offset: -2px;
+    box-shadow: 0px 0px 5px var(--brown);
+    border-radius: 50%;
 }
 .bgPale {
     background: linear-gradient(90deg, var(--darkBeige) 0%, var(--grayPale) 100%);
