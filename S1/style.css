@@ -320,7 +320,7 @@ body {
     justify-content: center;
 }
 .s1item {
-    background-color: var(--sepia);
+    background-color: var(--pale);
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
