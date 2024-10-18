@@ -140,25 +140,25 @@
                     </div>
                     <div>
                     <div class="s1talents1">
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                    </div>
-                    <div class="s1talents2">
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-    
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-    
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-    
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                        <div class="s1item"><img src="../Icons/Bard/Solo/bardS26.jpg" class="gray"></div>
-                    </div>
+                    <div class="s1item"><img src="../Icons/Stone/Skill7.png" onclick="skillPopup('PNSHB01')"></div>
+                </div>
+                <div class="s1talents2">
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk1.png" onclick="skillPopup('PNSHB02')"></div>
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk2.png" onclick="skillPopup('PNSHB03')"></div>
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk3.png" onclick="skillPopup('PNSHB04')"></div>
+                    
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk4.png" onclick="skillPopup('PNSHB05')"></div>
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk5.png" onclick="skillPopup('PNSHB06')"></div>
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk6.png" onclick="skillPopup('PNSHB07')"></div>
+                    
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk7.png" onclick="skillPopup('PNSHB08')"></div>
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk8.png" onclick="skillPopup('PNSHB09')"></div>
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk9.png" onclick="skillPopup('PNSHB10')"></div>
+                    
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk10.png" onclick="skillPopup('PNSHB11')"></div>
+                    <div class="s1item"><img src="../Icons/Stone/S1sk11.png" onclick="skillPopup('PNSHB12')"></div>
+                    <div class="s1item"><img src="../Icons/Necro/SoulHealing/S1sk12.png" onclick="skillPopup('PNSHB13')"></div>
+                </div>
                     </div>
                 </div>
                 <div class="gridActions">  <!--Actions-->
@@ -417,8 +417,8 @@
     document.getElementById("classScroll").scrollLeft = 800;
     document.addEventListener("contextmenu", (e) => {e.preventDefault()});        
     var xDown = null, yDown = null, xUp = null, yUp = null;
-    document.addEventListener('touchstart', touchstart, false);        
-    document.addEventListener('touchmove', touchmove, false);
+    document.querySelectorAll('.Talents, .Stone, .Skills, #Trees').forEach(elem => elem.addEventListener('touchstart', touchstart));        
+    document.querySelectorAll('.Talents, .Stone, .Skills, #Trees').forEach(elem => elem.addEventListener('touchmove', touchmove));
     document.querySelectorAll('.Talents').forEach(elem => elem.addEventListener('touchend',  function (e) {touchend( e, 'Skills', 'Talents', 'Stone');} ));
     document.querySelectorAll('.Stone').forEach(elem => elem.addEventListener('touchend',  function (e) {touchend( e, 'Talents', 'Stone', 'Skills');} ));
     document.querySelectorAll('.Skills').forEach(elem => elem.addEventListener('touchend',  function (e) {touchend( e, 'Stone', 'Skills', 'Talents');} ));
@@ -426,7 +426,7 @@
     function touchmove(evt) { if (!xDown || !yDown ) return; xUp = evt.touches[0].clientX; yUp = evt.touches[0].clientY; }
     function touchend(evt, left, active, right) { 
         var xDiff = xUp - xDown, yDiff = yUp - yDown;
-        if ((Math.abs(xDiff) > Math.abs(yDiff)) && (Math.abs(xDiff) > 100)) { 
+        if ((Math.abs(xDiff) > Math.abs(yDiff)) && (Math.abs(xDiff) > 1000)) { 
             if (xDiff < 0) 
             selectTree(right, active, left);
             else
