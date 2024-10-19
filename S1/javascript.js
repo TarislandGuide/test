@@ -1,5 +1,6 @@
 let skillCode = ['WAWS',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 let stoneCode = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+let s1Code = ['00','00','00','00']
 const u = {"y":"<span class='yellow'>","g":"<span class='green'>","b":"<span class='blue'>","o":"<span class='orange'>","w":"<span class='white'>","r":"<span class='red'>","s":"</span>","rn":"&nbsp;<span class = 'red notes'><b>&#9834;</b></span>&nbsp;","bn":"&nbsp;<span class = 'blue notes'><b>&#9835;</b></span>&nbsp;","pn":"&nbsp;<span class = 'purple notes'><b>&#9835;</b></span>&nbsp;"}
 var params = new URLSearchParams(location.search);
 let usePopups = true
@@ -103,6 +104,12 @@ function stoneCheck(value) {
     } else stoneCycle(value)
 }
 
+function s1Check(value) {
+    if (usePopups === true) {
+        s1Popup(value)
+    } else s1Cycle(value)
+}
+
 function talentPopup(value) {
     document.getElementById("skillOverlay").style.display = "block";
     function search(v){
@@ -139,6 +146,29 @@ function stonePopup(value, shape) {
     else {document.getElementById('plus').className = "bright";        
     }
     if (stoneCode[pos] === 0) {
+        document.getElementById('minus').className = "bright";
+    }
+}
+
+function s1Popup(value) {
+    document.getElementById("skillOverlay").style.display = "block";
+    function search(v){
+        return value === v.id;
+    }
+    let skill = talents.find(search);
+    const info = skill.variable.split(",");
+    pos = value.replace(/^[A-Z]+/, '');
+    function isActive() {
+        if (s1Code[skill.lvl] === pos) {return 1}
+        else return 0
+    }
+    document.getElementById("skillPopup").innerHTML = "<img class='popImg' src='"+ skill.icon + "'><span class='popSkillCalc'> " + isActive() + "/" + 1 + " </span><img id='minus' src='../Icons/minus.png' onclick='minusS1(\"" 
+    + skill.id + "\")'>  </span><img id='plus' src='../Icons/plus.png' onclick='plusS1(\"" + skill.id + "\")'><h2> " + skill.name + "</h2><br>" + eval('`'+ skill.description +'`');
+    if (isActive() === 1) {
+        document.getElementById('plus').className = "bright";
+    } else {document.getElementById('plus').className = "colour";        
+    }
+    if (isActive() === 0) {
         document.getElementById('minus').className = "bright";
     }
 }
@@ -341,6 +371,25 @@ function stoneCycle(value) {
     document.getElementById('stoneNum').innerHTML = stoneTotal();
 }
 
+function s1Cycle(value) {
+    function search(v){
+        return value === v.id;
+    }
+    pos = value.replace(/^[A-Z]+/, '');
+    let skill = talents.find(search);
+    if (s1Code[skill.lvl] === pos) {
+        s1Code[skill.lvl] = '00'
+        document.getElementById(value).className = "gray";
+    } else if (s1Code[skill.lvl] = '00') {
+        s1Code[skill.lvl] = pos
+        document.getElementById(value).className = "colour";
+    }
+    const arr = skill.preq.split(',');
+    document.getElementById(skillCode[0] + 'B' + arr[0]).className = "gray";
+    document.getElementById(skillCode[0] + 'B' + arr[1]).className = "gray";
+    updateParams(s1Code.join(''), 'S1');
+}
+
 function plusSkill(id) {
     pos = id.replace(/^[A-Z0]+/, '');
     if (test(id) === true) {
@@ -369,6 +418,21 @@ function plusStone(id, shape) {
     let [a, ...rest] = stoneCode
     updateParams(encode(rest), 'stone');
     document.getElementById('stoneNum').innerHTML = stoneTotal();
+}
+
+function plusS1(value) {
+    function search(v){
+        return value === v.id;
+    }
+    pos = value.replace(/^[A-Z]+/, '');
+    let skill = talents.find(search);
+    s1Code[skill.lvl] = pos
+    s1Popup(value);
+    const arr = skill.preq.split(',');
+    document.getElementById(value).className = "colour";
+    document.getElementById(skillCode[0] + 'B' + arr[0]).className = "gray";
+    document.getElementById(skillCode[0] + 'B' + arr[1]).className = "gray";
+    updateParams(s1Code.join(''), 'S1');
 }
 
 function minusSkill(id) {
@@ -401,9 +465,24 @@ function minusStone(id, shape) {
     document.getElementById('stoneNum').innerHTML = stoneTotal();
     }
 
-function reset(code) {
+function minusS1(value) {
+    function search(v){
+        return value === v.id;
+    }
+    pos = value.replace(/^[A-Z]+/, '');
+    let skill = talents.find(search);
+    s1Code[skill.lvl] = '00'
+    s1Popup(value);
+    const arr = skill.preq.split(',');
+    document.getElementById(value).className = "gray";
+    updateParams(s1Code.join(''), 'S1');
+}
+
+function reset(code, s1) {
     setTalents(code);
+    setS1(s1);
     setParams(code, 'skill');
+    setParams(s1, 'S1');
 }
 
 function resetStone(code, classCode) {
@@ -455,6 +534,19 @@ function setStone(code, classCode) {
         document.getElementById(id.substr(2)).classList.remove('colour');
     }
     document.getElementById('stoneNum').innerHTML = stoneTotal();
+}
+
+function setS1(code) {
+    s1Code = code.match(/.{1,2}/g)
+    for (let i = 2; i < 14; i++) { 
+        let id = skillCode[0] + 'B' + String(i).padStart(2, '0')
+        document.getElementById(id).className = "gray";
+    }
+    for (let i = 0; i < s1Code.length; i++) {
+        let id = skillCode[0] + 'B' + s1Code[i]
+        if (s1Code[i] !== '00'){
+            document.getElementById(id).className = "colour";
+        }}
 }
 
 function skillTotal() {

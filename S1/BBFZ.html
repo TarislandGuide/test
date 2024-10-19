@@ -144,21 +144,21 @@
                     <div class="s1item"><img src="../Icons/Stone/Skill7.png" onclick="passivePopup('BBFZB01')"></div>
                 </div>
                 <div class="s1talents2">
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk1.png" onclick="passivePopup('BBFZB02')"></div>
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk2.png" onclick="passivePopup('BBFZB03')"></div>
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk3.png" onclick="passivePopup('BBFZB04')"></div>
+                    <div class="s1item"><img id="BBFZB02" class="gray" src="../Icons/Barbarian/Frozen/S1sk1.png" onclick="s1Check('BBFZB02')" oncontextmenu="s1Popup('BBFZB02')"></div>
+                    <div class="s1item"><img id="BBFZB03" class="gray" src="../Icons/Barbarian/Frozen/S1sk2.png" onclick="s1Check('BBFZB03')" oncontextmenu="s1Popup('BBFZB03')"></div>
+                    <div class="s1item"><img id="BBFZB04" class="gray" src="../Icons/Barbarian/Frozen/S1sk3.png" onclick="s1Check('BBFZB04')" oncontextmenu="s1Popup('BBFZB04')"></div>
                     
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk4.png" onclick="passivePopup('BBFZB05')"></div>
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk5.png" onclick="passivePopup('BBFZB06')"></div>
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk6.png" onclick="passivePopup('BBFZB07')"></div>
+                    <div class="s1item"><img id="BBFZB05" class="gray" src="../Icons/Barbarian/Frozen/S1sk4.png" onclick="s1Check('BBFZB05')" oncontextmenu="s1Popup('BBFZB05')"></div>
+                    <div class="s1item"><img id="BBFZB06" class="gray" src="../Icons/Barbarian/Frozen/S1sk5.png" onclick="s1Check('BBFZB06')" oncontextmenu="s1Popup('BBFZB06')"></div>
+                    <div class="s1item"><img id="BBFZB07" class="gray" src="../Icons/Barbarian/Frozen/S1sk6.png" onclick="s1Check('BBFZB07')" oncontextmenu="s1Popup('BBFZB07')"></div>
                     
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk7.png" onclick="passivePopup('BBFZB08')"></div>
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk8.png" onclick="passivePopup('BBFZB09')"></div>
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk9.png" onclick="passivePopup('BBFZB10')"></div>
+                    <div class="s1item"><img id="BBFZB08" class="gray" src="../Icons/Barbarian/Frozen/S1sk7.png" onclick="s1Check('BBFZB08')" oncontextmenu="s1Popup('BBFZB08')"></div>
+                    <div class="s1item"><img id="BBFZB09" class="gray" src="../Icons/Barbarian/Frozen/S1sk8.png" onclick="s1Check('BBFZB09')" oncontextmenu="s1Popup('BBFZB09')"></div>
+                    <div class="s1item"><img id="BBFZB10" class="gray" src="../Icons/Barbarian/Frozen/S1sk9.png" onclick="s1Check('BBFZB10')" oncontextmenu="s1Popup('BBFZB10')"></div>
                     
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk10.png" onclick="passivePopup('BBFZB11')"></div>
-                    <div class="s1item"><img src="../Icons/Stone/S1sk11.png" onclick="passivePopup('BBFZB12')"></div>
-                    <div class="s1item"><img src="../Icons/Barbarian/Frozen/S1sk12.png" onclick="passivePopup('BBFZB13')"></div>
+                    <div class="s1item"><img id="BBFZB11" class="gray" src="../Icons/Barbarian/Frozen/S1sk10.png" onclick="s1Check('BBFZB11')" oncontextmenu="s1Popup('BBFZB11')"></div>
+                    <div class="s1item"><img id="BBFZB12" class="gray" src="../Icons/Stone/S1sk11.png" onclick="s1Check('BBFZB12')" oncontextmenu="s1Popup('BBFZB12')"></div>
+                    <div class="s1item"><img id="BBFZB13" class="gray" src="../Icons/Barbarian/Frozen/S1sk12.png" onclick="s1Check('BBFZB13')" oncontextmenu="s1Popup('BBFZB13')"></div>
                 </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                     <div class="treeItem"></div>
                     <div class="treeItem"><img id="onOffTalents" src="../Icons/on.png" onclick="togglePopups()"><span class="skillCalc right">Popups</span></div>
                     <div class="treeItem"><img src="../Icons/copy.png" onclick="copy(window.location)"><span id="copy1" class="skillCalc right">Copy</span></div>
-                    <div class="treeItem"><img src="../Icons/reset.png" onclick="reset('BDSL000000000000000000000')"><span class="skillCalc right">Reset</span></div>
+                    <div class="treeItem"><img src="../Icons/reset.png" onclick="reset('BBFZ000000000000000000000','00000000')"><span class="skillCalc right">Reset</span></div>
                 </div>
             </div>
             </div>
@@ -408,7 +408,9 @@
             if (params.has('skill') === true) {
                 setTalents(params.get('skill'));
             } if (params.has('stone') === true) {
-                setStone([1, ...decode(params.get('stone'))].join(''), skillCode[0]);   
+                setStone([1, ...decode(params.get('stone'))].join(''), skillCode[0]);  
+            } if (params.has('S1') === true) {
+                setS1(params.get('S1'));
             } else {setParams(skillCode.join(''), 'skill');
             }
         }

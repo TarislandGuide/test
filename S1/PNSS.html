@@ -144,21 +144,21 @@
                     <div class="s1item"><img src="../Icons/Stone/Skill7.png" onclick="passivePopup('PNSSB01')"></div>
                 </div>
                 <div class="s1talents2">
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk1.png" onclick="passivePopup('PNSSB02')"></div>
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk2.png" onclick="passivePopup('PNSSB03')"></div>
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk3.png" onclick="passivePopup('PNSSB04')"></div>
+                    <div class="s1item"><img id="PNSSB02" class="gray" src="../Icons/Necro/SoulSnatch/S1sk1.png" onclick="s1Check('PNSSB02')" oncontextmenu="s1Popup('PNSSB02')"></div>
+                    <div class="s1item"><img id="PNSSB03" class="gray" src="../Icons/Necro/SoulSnatch/S1sk2.png" onclick="s1Check('PNSSB03')" oncontextmenu="s1Popup('PNSSB03')"></div>
+                    <div class="s1item"><img id="PNSSB04" class="gray" src="../Icons/Necro/SoulSnatch/S1sk3.png" onclick="s1Check('PNSSB04')" oncontextmenu="s1Popup('PNSSB04')"></div>
                     
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk4.png" onclick="passivePopup('PNSSB05')"></div>
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk5.png" onclick="passivePopup('PNSSB06')"></div>
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk6.png" onclick="passivePopup('PNSSB07')"></div>
+                    <div class="s1item"><img id="PNSSB05" class="gray" src="../Icons/Necro/SoulSnatch/S1sk4.png" onclick="s1Check('PNSSB05')" oncontextmenu="s1Popup('PNSSB05')"></div>
+                    <div class="s1item"><img id="PNSSB06" class="gray" src="../Icons/Necro/SoulSnatch/S1sk5.png" onclick="s1Check('PNSSB06')" oncontextmenu="s1Popup('PNSSB06')"></div>
+                    <div class="s1item"><img id="PNSSB07" class="gray" src="../Icons/Necro/SoulSnatch/S1sk6.png" onclick="s1Check('PNSSB07')" oncontextmenu="s1Popup('PNSSB07')"></div>
                     
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk7.png" onclick="passivePopup('PNSSB08')"></div>
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk8.png" onclick="passivePopup('PNSSB09')"></div>
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk9.png" onclick="passivePopup('PNSSB10')"></div>
+                    <div class="s1item"><img id="PNSSB08" class="gray" src="../Icons/Necro/SoulSnatch/S1sk7.png" onclick="s1Check('PNSSB08')" oncontextmenu="s1Popup('PNSSB08')"></div>
+                    <div class="s1item"><img id="PNSSB09" class="gray" src="../Icons/Necro/SoulSnatch/S1sk8.png" onclick="s1Check('PNSSB09')" oncontextmenu="s1Popup('PNSSB09')"></div>
+                    <div class="s1item"><img id="PNSSB10" class="gray" src="../Icons/Necro/SoulSnatch/S1sk9.png" onclick="s1Check('PNSSB10')" oncontextmenu="s1Popup('PNSSB10')"></div>
                     
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk10.png" onclick="passivePopup('PNSSB11')"></div>
-                    <div class="s1item"><img src="../Icons/Stone/S1sk11.png" onclick="passivePopup('PNSSB12')"></div>
-                    <div class="s1item"><img src="../Icons/Necro/SoulSnatch/S1sk12.png" onclick="passivePopup('PNSSB13')"></div>
+                    <div class="s1item"><img id="PNSSB11" class="gray" src="../Icons/Necro/SoulSnatch/S1sk10.png" onclick="s1Check('PNSSB11')" oncontextmenu="s1Popup('PNSSB11')"></div>
+                    <div class="s1item"><img id="PNSSB12" class="gray" src="../Icons/Stone/S1sk11.png" onclick="s1Check('PNSSB12')" oncontextmenu="s1Popup('PNSSB12')"></div>
+                    <div class="s1item"><img id="PNSSB13" class="gray" src="../Icons/Necro/SoulSnatch/S1sk12.png" onclick="s1Check('PNSSB13')" oncontextmenu="s1Popup('PNSSB13')"></div>
                 </div>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                         <div class="treeItem"></div>
                         <div class="treeItem"><img id="onOffTalents" src="../Icons/on.png" onclick="togglePopups()"><span class="skillCalc right">Popups</span></div>
                         <div class="treeItem"><img src="../Icons/copy.png" onclick="copy(window.location)"><span id="copy1" class="skillCalc right">Copy</span></div>
-                        <div class="treeItem"><img src="../Icons/reset.png" onclick="reset('PNSS000000000000000000000')"><span class="skillCalc right">Reset</span></div>
+                        <div class="treeItem"><img src="../Icons/reset.png" onclick="reset('PNSS000000000000000000000', '00000000')"><span class="skillCalc right">Reset</span></div>
                     </div>
                 </div>              
                 </div>
