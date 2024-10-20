@@ -409,7 +409,7 @@
             if (params.has('skill') === true) {
                 setTalents(params.get('skill'));
             } if (params.has('stone') === true) {
-                setStone([1, ...decode(params.get('stone'))].join(''), skillCode[0]);   
+                setStone([1, ...decode(params.get('stone'), 6, 60)].join(''), skillCode[0]);   
             } else {setParams(skillCode.join(''), 'skill');
             }
         }

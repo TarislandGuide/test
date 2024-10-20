@@ -53,21 +53,18 @@ function togglePopups() {
     document.getElementById('onOffTalents').src="../Icons/on.png"
     document.getElementById('onOffStone').src="../Icons/on.png"
 }}
-
-function encode(x) {
-    return x.
-    reduce((ac, cv, ix, arr) => ix % 2 ? ac.concat([[arr[ix - 1], arr[ix]]]) : ac, []).
-    map( ([a,b]) => 6*a+b ).
-    map( v => v.toString(16) ).
-    join("")
+        
+// base of data = max num + 1
+function encode(array, baseOfData, arraylength) {           
+    if (array.forEach(e => { if (e >= baseOfData) console.log(e + " larger than " + baseOfData + " in encode") }))
+    if (array.length !== arraylength){ console.log("length of array " + array.length + " != " + arraylength + " array length in encode") }
+    let a = array.reduce((ac, cv, ix, ar) => (BigInt(cv) * BigInt(baseOfData) ** (BigInt(ar.length) - BigInt(ix) - 1n)) + ac, 0n).toString(16)
+    return a
 }
 
-function decode(x) {
-    return x.
-    split("").
-    map(v => parseInt(v, 16)).
-    map((v) =>  [Math.floor(v/6), v % 6]).
-    reduce((a, c) => a.concat(c))
+function decode(codeString, baseOfData, arraylength) {
+    let a = BigInt("0x"+codeString).toString(baseOfData).padStart(arraylength, "0").split("").map(Number)
+    return a
 }
 
 function selectTree(active, inactive1, inactive2) {
@@ -85,10 +82,10 @@ function selectTree(active, inactive1, inactive2) {
         document.getElementById('Trees').style.gridTemplateAreas = '"skills" "ults" "pvp"';
     }
     if (active === 'Stone' && params.has('stone') === true) {
-        setStone([1, ...decode(params.get('stone'))].join(''), skillCode[0]);       
+        setStone([1, ...decode(params.get('stone'), 6, 60)].join(''), skillCode[0]);       
     } else {
         let [a, ...rest] = stoneCode
-        setParams(encode(rest), 'stone');
+        setParams(encode(rest, 6, 60), 'stone');
     }
 }
 
@@ -367,7 +364,7 @@ function stoneCycle(value) {
     }
     document.getElementById(value).innerHTML = stoneCode[pos];
     let [a, ...rest] = stoneCode
-    updateParams(encode(rest), 'stone');
+    updateParams(encode(rest, 6, 60), 'stone');
     document.getElementById('stoneNum').innerHTML = stoneTotal();
 }
 
@@ -416,7 +413,7 @@ function plusStone(id, shape) {
     }
     document.getElementById(id).innerHTML = stoneCode[pos];
     let [a, ...rest] = stoneCode
-    updateParams(encode(rest), 'stone');
+    updateParams(encode(rest, 6, 60), 'stone');
     document.getElementById('stoneNum').innerHTML = stoneTotal();
 }
 
@@ -488,7 +485,7 @@ function reset(code, s1) {
 function resetStone(code, classCode) {
     setStone(code, classCode);
     let [a, ...rest] = stoneCode
-    setParams(encode(rest), 'stone');
+    setParams(encode(rest, 6, 60), 'stone');
 }
 
 function copy(value) {
@@ -571,7 +568,7 @@ function raidBuilds(value) {
     }
     let buildCode = builds.find(search);
     setTalents(buildCode.Skill);
-    setStone([1, ...decode(buildCode.Stone)].join(''), skillCode[0]);   
+    setStone([1, ...decode(buildCode.Stone, 6, 60)].join(''), skillCode[0]);   
     setParams(buildCode.Skill, 'skill');
     setParams(buildCode.Stone, 'stone');
 }
