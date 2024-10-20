@@ -492,7 +492,6 @@ function copy(value) {
     window.navigator.clipboard.writeText(value);
     document.getElementById("copy1").innerHTML = "Copied";
     document.getElementById("copy2").innerHTML = "Copied";
-    alert("Inscribed Stone copy / import build function not working at the moment, maybe tomorrow, sorry")
     setTimeout( function() {
         document.getElementById("copy1").innerHTML = "Copy";
         document.getElementById("copy2").innerHTML = "Copy";
