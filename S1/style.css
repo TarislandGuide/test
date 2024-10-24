@@ -498,6 +498,9 @@ body {
     z-index: 7;
     padding: 1.5rem;
     border-radius: 1rem;
+    outline: 2px solid var(--pale);
+    outline-offset: -2px;
+    box-shadow: 0px 0px 5px var(--brown);
 }
 .popupGrid {
     position: relative;
@@ -507,7 +510,7 @@ body {
     'tab1 tab2 tab3 tab4'
     'main main main main';
     grid-row-gap: 0rem;
-    grid-column-gap: 0.2rem;
+    grid-column-gap: 0.4rem;
     margin: auto;
     margin-top: 2.5rem;
     z-index: 7;
@@ -519,6 +522,10 @@ body {
     border-radius: 0.5rem 0.5rem 0 0;
     background-color: var(--brown); 
     color:var(--beige);
+    border: 2px solid var(--pale);
+    border-bottom: 0;
+    box-shadow: 0px 0px 5px var(--brown);
+    z-index: 5;
 }
 .tab2 {
     grid-area: tab2;
@@ -527,6 +534,10 @@ body {
     border-radius: 0.5rem 0.5rem 0 0;
     background-color: var(--brown); 
     color:var(--beige);
+    border: 2px solid var(--pale);
+    border-bottom: 0;
+    box-shadow: 0px 0px 5px var(--brown);
+    z-index: 5;
 }
 .tab3 {
     grid-area: tab3;
@@ -535,18 +546,31 @@ body {
     border-radius: 0.5rem 0.5rem 0 0;
     background-color: var(--brown); 
     color:var(--beige);
+    border: 2px solid var(--pale);
+    border-bottom: 0;
+    box-shadow: 0px 0px 5px var(--brown);
+    z-index: 5;
+}
+.tabItem {
+    width: 4rem;
+    margin-left: 0.5rem;
 }
 .popupMain {
     grid-area: main;
     border-radius: 0 1rem 1rem 1rem;
-    width: 20rem;
+    width: 25rem;
     min-height: 20rem;
+    margin-left: 2px;
     background-color: var(--brown); 
     color:var(--beige);
     padding: 1.5rem;
+    outline: 2px solid var(--pale);
+    box-shadow: 0px 0px 5px var(--brown);
+    z-index: 3;
 }
 .inactive {
-    background-color: var(--brownTrans); 
+    background-color: var(--midBrown); 
+    z-index: 1;
 }
 .green {
     color: var(--green);
@@ -1004,9 +1028,15 @@ body {
     .stoneCalc {
         right: 0.7rem;
     }
-    .popup {
+    .popup, .popupMain {
         width: 19rem;
         padding: 1rem;
+        margin-left: 1.1rem;
+    }
+    .popupMain {
+        gap: 0.2rem;
+    }
+    .tab1 {
         margin-left: 1rem;
     }
     .stoneItem img {
@@ -1108,7 +1138,7 @@ body {
     .stoneCalc {
         right: 0.8rem;
     }
-    .popup {
+    .popup, .popupMain {
         width: 20rem;
     }
     .treeItem img, .popImg, .popImgBuild {
@@ -1296,10 +1326,10 @@ body {
     .req {
         bottom: -2.85rem;
     }
-    .popup {
+    .popup, .popupMain {
         width: 19rem;
         padding: 1rem;
-        margin-left: 1rem;
+        margin-left: 1.1rem;
     }
     #plus, #minus {
         max-width: 2.7rem;
