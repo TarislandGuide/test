@@ -191,7 +191,10 @@ function skillPopup(value) {
     + skill.range + " m</span><br>Cast Time: <span class = 'orange'>" + skill.speed + "</span><br>Cooldown: <span class = 'orange'>" + skill.cooldown + " sec</span><br><br>" + eval('`'+ skill.description +'`');
 }
 
-function buildsPopup(value) {
+function buildsPopup(value, e) {
+    const event = e || window.event;
+    event.preventDefault();
+    event.stopPropagation();
     document.getElementById("skillOverlay").style.display = "block";
     function search(v){
         return value === v.id;
@@ -586,12 +589,10 @@ function raidBuilds(value) {
 }
 
 function linkBuilds(value) {
-    console.log(event.target.className)
     function search(v){
         return value === v.id;
     }
     let buildCode = builds.find(search);
-    //if(event.target.className = "noProp" || "circle noProp") {event.stopPropagation()}
     window.location =  `./S1/${value.slice(0, 4)}.html?skill=${buildCode.Skill}&stone=${buildCode.Stone}`;
 }
 
