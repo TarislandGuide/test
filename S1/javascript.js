@@ -217,7 +217,10 @@ function skillCostPopup(value) {
     + skill.range + " m</span><br>Resource: <span class = 'orange'>" + skill.cost + "</span><br>Cast Time: <span class = 'orange'>" + skill.speed + "</span><br>Cooldown: <span class = 'orange'>" + skill.cooldown + " sec</span><br><br>" + eval('`'+ skill.description +'`');
 }
 
-function buildsCostPopup(value) {
+function buildsCostPopup(value, e) {
+    const event = e || window.event;
+    event.preventDefault();
+    event.stopPropagation();
     document.getElementById("skillOverlay").style.display = "block";
     function search(v){
         return value === v.id;
@@ -239,7 +242,10 @@ function ultPopup(value) {
     + skill.range + " m</span><br>Cooldown: <span class = 'orange'>" + skill.cooldown + " sec</span><br><br>" + eval('`'+ skill.description +'`');
 }
 
-function buildsCreatePopup(value) {
+function buildsCreatePopup(value, e) {
+    const event = e || window.event;
+    event.preventDefault();
+    event.stopPropagation();
     var tab1 = document.createElement("div");
     tab1.classList.add("tab1");
     tab1.id = "summary";
@@ -579,10 +585,7 @@ function raidBuilds(value) {
     setParams(buildCode.Stone, 'stone');
 }
 
-function linkBuilds(value, e) {
-    const event = e || window.event;
-    event.preventDefault();
-    event.stopPropagation();
+function linkBuilds(value) {
     console.log(event.target.className)
     function search(v){
         return value === v.id;
