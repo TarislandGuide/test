@@ -295,11 +295,7 @@ function buildsInfo(value) {
     }
     let skill = builds.find(search);
     const info = skill.variable.split(",");
-    if (document.URL.includes("index.html")) {
     document.getElementById("buildsText").innerHTML = "<img class='popImgBuild' src='"+ skill.summaryIcon + "'><img class='popImgBuild circle' src='"+ skill.icon + "'><h2> " + eval('`'+ skill.name +'`') + "<br><small>Build Overview</small></h2><br>" + eval('`'+ skill.summary +'`');
-    } else {
-    document.getElementById("buildsText").innerHTML = "<img class='popImgBuild' src='."+ skill.summaryIcon + "'><img class='popImgBuild circle' src='."+ skill.icon + "'><h2> " + eval('`'+ skill.name +'`') + "<br><small>Build Overview</small></h2><br>" + eval('`'+ skill.summary +'`');    
-    }
 }
 
 function buildsMacro(value) {
