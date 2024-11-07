@@ -269,15 +269,11 @@ function buildsCreatePopup(value, e) {
     document.getElementById("buildsPopup").appendChild(tab2);
     document.getElementById("buildsPopup").appendChild(tab3);
     document.getElementById("buildsPopup").appendChild(popupMain);
-    if (document.URL.includes("index.html")) {
+
     document.getElementById("summary").innerHTML = "<img class='tabItem' src='/Icons/summary.png'>";
     document.getElementById("macro").innerHTML = "<img class='tabItem' src='/Icons/macro.png'>";
-    document.getElementById("gear").innerHTML = "<img class='tabItem' src='/Icons/chat.png'>";
-    } else {
-    document.getElementById("summary").innerHTML = "<img class='tabItem' src='/Icons/summary.png'>";
-    document.getElementById("macro").innerHTML = "<img class='tabItem' src='/Icons/macro.png'>";
-    document.getElementById("gear").innerHTML = "<img class='tabItem' src='/Icons/chat.png'>";
-    }
+    document.getElementById("gear").innerHTML = "<img class='tabItem' src='/Icons/gear.png'>";
+    
     document.getElementById("buildsText").innerHTML = "<p>Error<br>try force refreshing the page (ctrl + shift + R) or clearing the cache<br>if error persists please report the bug on the <a href='https://discord.com/channels/1070905779370074153/1259420808116174864'>discord</a> thread</p>"; 
     buildsInfo(value);
 }
@@ -303,7 +299,7 @@ function buildsMacro(value) {
     }
     let skill = builds.find(search);
     const info = skill.variable.split(",");
-    document.getElementById("buildsText").innerHTML = eval('`'+ skill.macro +'`');
+    document.getElementById("buildsText").innerHTML = "<div><h2>" + skill.header + "</h2></div><div>" + skill.macro + "<br><br></div><div class='gear'><div><img src='" + skill.skill1icon + "'></div><div>" + skill.skill1 + "</div><div><img src='" + skill.skill2icon + "'></div><div>" + skill.skill2 + "</div><div><img src='" + skill.skill3icon + "'></div><div>" + skill.skill3 + "</div><div><img src='" + skill.skill4icon + "'></div><div>" + skill.skill4 + "</div><div><img src='" + skill.skill5icon + "'></div><div>" + skill.skill5 + "</div><div><img src='" + skill.skill6icon + "'></div><div>" + skill.skill6 + "</div><div><img src='" + skill.skill7icon + "'></div><div>" + skill.skill7 + "</div><div><img src='" + skill.skill8icon + "'></div><div>" + skill.skill8 + "</div><div><img src='" + skill.skill9icon + "'></div><div>" + skill.skill9 + "</div></div>";
 }
 
 function buildsGear(value) {
@@ -580,9 +576,11 @@ function raidBuilds(value) {
     }
     let buildCode = builds.find(search);
     setTalents(buildCode.Skill);
-    setStone([1, ...decode(buildCode.Stone, 6, 60)].join(''), skillCode[0]);   
+    setStone([1, ...decode(buildCode.Stone, 6, 60)].join(''), skillCode[0]); 
+    setS1(buildCode.S1);
     setParams(buildCode.Skill, 'skill');
     setParams(buildCode.Stone, 'stone');
+    setParams(buildCode.S1, 'S1');
 }
 
 function linkBuilds(value) {
@@ -590,7 +588,7 @@ function linkBuilds(value) {
         return value === v.id;
     }
     let buildCode = builds.find(search);
-    window.location =  `./S1/${value.slice(0, 4)}.html?skill=${buildCode.Skill}&stone=${buildCode.Stone}`;
+    window.location =  `./S1/${value.slice(0, 4)}.html?skill=${buildCode.Skill}&stone=${buildCode.Stone}&S1=${buildCode.S1}`;
 }
 
 function accordian(value) {
